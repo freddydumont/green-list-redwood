@@ -1,20 +1,11 @@
 import { Machine, assign } from 'xstate'
 
+// TODO: add language context
 const formMachine = Machine(
   {
     id: 'form',
-    initial: 'home',
+    initial: 'info',
     states: {
-      home: {
-        on: {
-          START: {
-            target: 'info',
-            actions: assign({
-              lang: (ctx, event) => event.lang,
-            }),
-          },
-        },
-      },
       info: {
         on: {
           // TODO: make previous a cancel action. warn user and clear form state

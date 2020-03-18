@@ -1,6 +1,7 @@
 import { Link, routes } from '@redwoodjs/router'
 import { useColorMode, Container, Flex, NavLink, Button } from 'theme-ui'
 
+// TODO: add button to change language
 const Header = () => {
   const [colorMode, setColorMode] = useColorMode()
   return (

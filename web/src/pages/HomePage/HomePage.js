@@ -1,4 +1,5 @@
 import { Styled, Button, Divider } from 'theme-ui'
+import { Link, routes } from '@redwoodjs/router'
 
 import FormLayout from 'src/layouts/FormLayout/FormLayout'
 
@@ -10,7 +11,9 @@ const HomePage = () => {
         If you have specialized skills, or you&apos;re available for serving in
         the kitchen, Dhamma Suttama would like to know!
       </Styled.p>
-      <Button mr={2}>Sign up now</Button>
+      <Button as={Link} to={routes.form()} mr={2}>
+        Sign up now
+      </Button>
       <Button variant="outline">Learn more</Button>
       <Divider />
       <Styled.h2>How it works</Styled.h2>
@@ -30,7 +33,9 @@ const HomePage = () => {
         centre&apos;s immediate needs, or for a project for which your skills
         would be useful.
       </Styled.p>
-      <Button mr={2}>Sign up now</Button>
+      <Button as={Link} to={routes.form()}>
+        Sign up now
+      </Button>
     </FormLayout>
   )
 }
