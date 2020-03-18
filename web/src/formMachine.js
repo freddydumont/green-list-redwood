@@ -9,7 +9,6 @@ const formMachine = Machine(
       info: {
         on: {
           // TODO: make previous a cancel action. warn user and clear form state
-          PREVIOUS: 'home',
           NEXT: {
             target: 'skills',
             cond: 'validateFields',

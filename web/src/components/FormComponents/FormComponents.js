@@ -18,8 +18,8 @@ import {
 import { useMachine } from '@xstate/react'
 import isEmpty from 'lodash/isEmpty'
 
-import { InputMachine } from '../inputMachine'
-import { useFormService } from '../hooks/useFormService'
+import { InputMachine } from 'src/inputMachine'
+import { useFormService } from 'src/hooks/useFormService'
 
 /**
  * [Smart form component](https://react-hook-form.com/advanced-usage#SmartFormComponent).
