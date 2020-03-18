@@ -7,7 +7,7 @@ import Routes from 'src/Routes'
 
 import theme from './theme'
 
-import './index.css'
+import 'tailwindcss/dist/base.css'
 
 ReactDOM.render(
   <FatalErrorBoundary page={FatalErrorPage}>
