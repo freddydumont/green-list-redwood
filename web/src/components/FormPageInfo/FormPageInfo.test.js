@@ -20,6 +20,7 @@ describe('userSchema', () => {
         phone: '555-555-5555',
         location: 'Levis',
         gender: 'male',
+        lang: 'fr',
         dateOfBirth: '2020-01-09T05:00:00.000Z',
         email: 'test@example.com',
         lastName: 'Morin',

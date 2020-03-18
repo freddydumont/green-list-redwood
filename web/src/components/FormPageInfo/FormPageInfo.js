@@ -24,6 +24,10 @@ export const userSchema = yup.object().shape({
     .mixed()
     .oneOf(['male', 'female'])
     .required(),
+  lang: yup
+    .mixed()
+    .oneOf(['fr', 'en'])
+    .required(),
   location: yup.string().required(),
   phone: yup.string().required(),
   contactPreference: yup
@@ -62,6 +66,16 @@ const FormPageInfo = () => {
           options={[
             { label: 'Male', value: 'male' },
             { label: 'Female', value: 'female' },
+          ]}
+        />
+
+        <FormInputChoice
+          type="radio"
+          label="Preferred language"
+          name="lang"
+          options={[
+            { label: 'Français', value: 'fr' },
+            { label: 'English', value: 'en' },
           ]}
         />
 
