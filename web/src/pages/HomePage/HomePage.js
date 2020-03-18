@@ -1,9 +1,11 @@
+import FormLayout from 'src/layouts/FormLayout/FormLayout'
+
 const HomePage = () => {
   return (
-    <div>
+    <FormLayout>
       <h1>HomePage</h1>
       <p>Find me in ./web/src/pages/HomePage/HomePage.js</p>
-    </div>
+    </FormLayout>
   )
 }
 

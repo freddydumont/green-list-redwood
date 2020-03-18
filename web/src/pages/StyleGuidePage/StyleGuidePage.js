@@ -1,9 +1,11 @@
 import { Styled } from 'theme-ui'
 import { TypeScale, TypeStyle, ColorPalette } from '@theme-ui/style-guide'
 
+import FormLayout from 'src/layouts/FormLayout/FormLayout'
+
 const StyleGuidePage = () => {
   return (
-    <>
+    <FormLayout>
       <Styled.h1>Style Guide</Styled.h1>
       <Styled.h2>Color Palette</Styled.h2>
       <ColorPalette />
@@ -25,7 +27,7 @@ const StyleGuidePage = () => {
       >
         The quick brown fox jumps over the lazy dog.
       </TypeStyle>
-    </>
+    </FormLayout>
   )
 }
 
