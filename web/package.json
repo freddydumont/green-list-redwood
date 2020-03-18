@@ -10,10 +10,12 @@
     "@redwoodjs/web": "^0.2.5",
     "@theme-ui/presets": "^0.3.0",
     "@theme-ui/style-guide": "^0.3.0",
+    "@xstate/react": "^0.8.1",
     "prop-types": "^15.7.2",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "tailwindcss": "^1.2.0",
-    "theme-ui": "^0.3.1"
+    "theme-ui": "^0.3.1",
+    "xstate": "^4.8.0"
   }
 }
