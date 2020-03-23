@@ -7,6 +7,11 @@ const log = require('./utils')
 dotenv.config()
 const db = new PrismaClient()
 
+let count = {
+  found: 0,
+  created: 0,
+}
+
 const availabilities = [
   'seasonal',
   'betweenCourses',
@@ -16,6 +21,24 @@ const availabilities = [
 ]
 
 const languages = ['fr', 'en']
+
+const skills = {
+  // kitchen are questions, let's just call them q1...q8, and the translation
+  // file will handle the displayed name
+  kitchen: ['q1', 'q2', 'q3', 'q4', 'q5', 'q6', 'q7', 'q8'],
+  maintenance: [
+    'plumbing',
+    'electricity',
+    'painting',
+    'carpentry',
+    'mechanic',
+    'architecture',
+  ],
+  technology: ['sysadmin', 'networking', 'software', 'support'],
+  accounting: ['accounting', 'bookkeeping'],
+}
+
+const skillDomains = Object.keys(skills)
 
 async function seedAvailabillities() {
   log.start('Availabilities')
@@ -28,6 +51,7 @@ async function seedAvailabillities() {
 
     if (data) {
       log.found('Availability', name, data)
+      count.found++
     } else {
       const created = await db.availability.create({
         data: {
@@ -36,6 +60,7 @@ async function seedAvailabillities() {
       })
 
       log.created('Availability', name, created)
+      count.created++
     }
   }
 
@@ -53,6 +78,7 @@ async function seedLanguages() {
 
     if (data) {
       log.found('Language', name, data)
+      count.found++
     } else {
       const created = await db.language.create({
         data: {
@@ -61,10 +87,74 @@ async function seedLanguages() {
       })
 
       log.created('Language', name, created)
+      count.created++
     }
   }
 
   log.end('Languages')
+}
+
+/** Seed skill domains. Skills will be connected when we create them */
+async function seedSkillDomains() {
+  log.start('Skill Domains')
+  for (let name of skillDomains) {
+    const data = await db.skillDomain.findOne({
+      where: {
+        name,
+      },
+    })
+
+    if (data) {
+      log.found('Skill Domain', name, data)
+      count.found++
+    } else {
+      const created = await db.skillDomain.create({
+        data: {
+          name,
+        },
+      })
+
+      log.created('Skill Domain', name, created)
+      count.created++
+    }
+  }
+
+  log.end('Skill Domains')
+}
+
+async function seedSkills() {
+  log.start('Skills')
+
+  for (let skillDomain of skillDomains) {
+    for (let name of skills[skillDomain]) {
+      const data = await db.skill.findOne({
+        where: {
+          name,
+        },
+      })
+
+      if (data) {
+        log.found('Skills', name, data)
+        count.found++
+      } else {
+        const created = await db.skill.create({
+          data: {
+            name,
+            domain: {
+              connect: {
+                name: skillDomain,
+              },
+            },
+          },
+        })
+
+        log.created('Skills', name, created)
+        count.created++
+      }
+    }
+  }
+
+  log.end('Skills')
 }
 
 async function main() {
@@ -75,6 +165,9 @@ async function main() {
 
   await seedAvailabillities()
   await seedLanguages()
+  await seedSkillDomains()
+  await seedSkills()
+  log.count(count)
 }
 
 main()

@@ -27,9 +27,17 @@ function created(table, name, data) {
 ${JSON.stringify(data, null, 2)}}`)
 }
 
+function count(count) {
+  log(chalk`
+Found {yellow ${count.found}} records.
+Created {green ${count.created}} records.
+`)
+}
+
 module.exports = {
   start,
   end,
   found,
   created,
+  count,
 }
