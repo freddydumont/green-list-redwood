@@ -8,7 +8,7 @@
   "dependencies": {
     "@redwoodjs/router": "^0.2.5",
     "@redwoodjs/web": "^0.2.5",
-    "@theme-ui/presets": "^0.3.0",
+    "@theme-ui/presets": "^0.4.0-alpha.0",
     "@theme-ui/style-guide": "^0.3.0",
     "@xstate/react": "^0.8.1",
     "lodash": "^4.17.15",
