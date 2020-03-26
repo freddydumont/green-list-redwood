@@ -1,4 +1,4 @@
-import { Styled, Text, Divider } from 'theme-ui'
+import { Text, Divider } from 'theme-ui'
 
 /**
  * Basic layout for each form page
@@ -6,13 +6,10 @@ import { Styled, Text, Divider } from 'theme-ui'
 const FormPageLayout = ({ title, description, children }) => {
   return (
     <>
-      <Styled.h1>{title}</Styled.h1>
-      <Text
-        as="p"
-        sx={{
-          fontSize: 2,
-        }}
-      >
+      <Text as="h1" sx={{ fontSize: '5xl', fontWeight: 'semibold' }}>
+        {title}
+      </Text>
+      <Text as="p" sx={{ fontSize: 'xl' }}>
         {description}
       </Text>
       <Divider mx={0} mb={4} />

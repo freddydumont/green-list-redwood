@@ -1,5 +1,37 @@
 import { tailwind } from '@theme-ui/presets'
 
+const buttonBase = {
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  borderRadius: 'md',
+  py: [3, null, 4],
+  px: [8, null, 10],
+  fontSize: ['base', null, 'lg'],
+  fontWeight: 'medium',
+  lineHeight: 6,
+  cursor: 'pointer',
+  transition: 'all 100ms ease-in-out',
+
+  '&:focus': {
+    outline: 0,
+    boxShadow: 'outline',
+  },
+}
+
+const fontSizes = {
+  xs: '.75rem',
+  sm: '.875rem',
+  base: '1rem',
+  lg: '1.125rem',
+  xl: '1.25rem',
+  '2xl': '1.5rem',
+  '3xl': '1.875rem',
+  '4xl': '2.25rem',
+  '5xl': '3rem',
+  '6xl': '4rem',
+}
+
 /**
  * If you see an empty object in the theme, see below the theme object
  * for its definition.
@@ -22,6 +54,18 @@ const theme = {
       'hsl(202, 83%, 41%)',
       'hsl(203, 87%, 34%)',
       'hsl(204, 96%, 27%)',
+    ],
+    indigo: [
+      '#f0f5ff',
+      '#e5edff',
+      '#cddbfe',
+      '#b4c6fc',
+      '#8da2fb',
+      '#6875f5',
+      '#5850ec',
+      '#5145cd',
+      '#42389d',
+      '#362f78',
     ],
     gray: [
       'hsl(210, 36%, 96%)',
@@ -88,6 +132,31 @@ const theme = {
       dark: {},
     },
   },
+  sizes: {
+    ...tailwind.sizes,
+    72: '18rem',
+    96: '24rem',
+    'screen-sm': '640px',
+    'screen-md': '768px',
+    'screen-lg': '1024px',
+    'screen-xl': '1280px',
+  },
+  fontSizes,
+  space: {
+    ...tailwind.sizes,
+    28: '7rem',
+  },
+  lineHeights: {
+    ...tailwind.lineHeights,
+    3: '.75rem',
+    4: '1rem',
+    5: '1.25rem',
+    6: '1.5rem',
+    7: '1.75rem',
+    8: '2rem',
+    9: '2.25rem',
+    10: '2.5rem',
+  },
   variants: {
     box: {
       form: {
@@ -136,12 +205,31 @@ const theme = {
   buttons: {
     ...tailwind.buttons,
     primary: {
-      fontWeight: 'semibold',
-      cursor: 'pointer',
+      ...buttonBase,
+      bg: 'primary',
+      color: 'white',
+
       '&:hover': {
         bg: 'primaryHover',
-        boxShadow: 'default',
       },
+    },
+    gray: {
+      ...buttonBase,
+      color: 'indigo.7',
+      bg: 'indigo.1',
+
+      '&:hover': {
+        color: 'indigo.6',
+        bg: 'indigo.0',
+      },
+
+      '&focus': {
+        borderColor: 'indigo.3',
+      },
+    },
+    outline: {
+      ...tailwind.buttons.outline,
+      ...buttonBase,
     },
     // form styles are defined below because of self-referencement
     form: {},
@@ -163,10 +251,10 @@ const theme = {
 
 theme.colors = {
   ...theme.colors,
-  primary: theme.colors.purple[4],
-  primaryHover: theme.colors.purple[6],
-  secondary: theme.colors.teal[3],
-  secondaryHover: theme.colors.teal[5],
+  primary: theme.colors.purple[6],
+  primaryHover: theme.colors.purple[5],
+  secondary: theme.colors.teal[5],
+  secondaryHover: theme.colors.teal[3],
   dark: theme.colors.gray[9],
   grayDark: theme.colors.gray[9],
   background: theme.colors.light,
