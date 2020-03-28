@@ -118,7 +118,7 @@ const colors = {
     dark: {
       background: baseColors.gray[9],
       text: baseColors.gray[0],
-      textMuted: baseColors.gray[5],
+      textMuted: baseColors.gray[4],
       textDanger: baseColors.red[2],
       light: baseColors.gray[8],
       inputBg: baseColors.gray[8],

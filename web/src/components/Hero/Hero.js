@@ -15,7 +15,7 @@ const Hero = () => {
       <Box
         sx={{
           position: 'relative',
-          bg: 'white',
+          bg: 'background',
           overflow: 'hidden',
         }}
       >
@@ -30,7 +30,7 @@ const Hero = () => {
               position: 'relative',
               zIndex: 10,
               pb: [8, 16, 20, 28, 32],
-              bg: 'white',
+              bg: 'background',
               maxWidth: [null, null, null, '2xl'],
               width: [null, null, null, 'full'],
             }}
@@ -192,7 +192,7 @@ const Hero = () => {
                     fontWeight: 'extrabold',
                     letterSpacing: 'tight',
                     lineHeight: [10, 'none'],
-                    color: 'gray.9',
+                    color: 'text',
                   }}
                 >
                   {'Give service at '}
@@ -210,7 +210,7 @@ const Hero = () => {
                     mx: [null, 'auto', null, 0],
                     fontSize: ['base', 'lg', 'xl'],
                     maxWidth: [null, 'xl'],
-                    color: 'gray.6',
+                    color: 'textMuted',
                   }}
                 >
                   If you have specialized skills, or you&apos;re available for
@@ -248,7 +248,7 @@ const Hero = () => {
                 bottom: 0,
                 height: 'full',
                 width: 48,
-                color: 'white',
+                color: 'background',
                 transform: 'translate(50%)',
               }}
               fill="currentColor"
