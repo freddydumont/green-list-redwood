@@ -11,7 +11,7 @@ const buttonBase = {
   fontWeight: 'medium',
   lineHeight: 6,
   cursor: 'pointer',
-  transition: 'all 100ms ease-in-out',
+  transition: 'all 150ms ease-in-out',
 
   '&:focus': {
     outline: 0,
@@ -208,9 +208,11 @@ const theme = {
       ...buttonBase,
       bg: 'primary',
       color: 'white',
+      boxShadow: 'default',
 
       '&:hover': {
         bg: 'primaryHover',
+        boxShadow: 'lg',
       },
     },
     gray: {
