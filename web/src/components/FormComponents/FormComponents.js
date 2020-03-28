@@ -98,8 +98,8 @@ export function FormField({ name, label, as = 'input', ...rest }) {
   function getVariant(state) {
     return {
       idle: 'input',
-      error: 'inputError',
-      valid: 'inputValid',
+      error: 'error',
+      valid: 'valid',
     }[state]
   }
 
@@ -116,7 +116,7 @@ export function FormField({ name, label, as = 'input', ...rest }) {
       {as === 'input' && <Input {...props} />}
       {as === 'textarea' && <Textarea sx={{ height: 24 }} {...props} />}
       <ErrorMessage
-        as={<Text color="textDanger" mb={4} />}
+        as={<Text color="textDanger" mb={8} />}
         name={name}
         errors={errors}
       />
@@ -167,7 +167,7 @@ export function FormInputChoiceBox({ name, label, children }) {
         {children}
       </Box>
       <ErrorMessage
-        as={<Text color="textDanger" mb={4} />}
+        as={<Text color="textDanger" mb={8} />}
         name={name}
         errors={errors}
       />

@@ -12,7 +12,7 @@ const FormPageLayout = ({ title, description, children }) => {
       <Text as="p" sx={{ fontSize: 'xl' }}>
         {description}
       </Text>
-      <Divider mx={0} mb={4} />
+      <Divider mx={0} mb={8} />
       {children}
     </>
   )

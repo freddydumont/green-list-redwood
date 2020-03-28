@@ -93,7 +93,7 @@ const FormPageInfo = () => {
           ]}
         />
 
-        <Divider mx={0} mt={0} mb={4} />
+        <Divider mx={0} mt={0} mb={8} />
         <Flex
           sx={{
             justifyContent: 'flex-end',
