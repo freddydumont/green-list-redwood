@@ -138,6 +138,15 @@ const fontSizes = {
   '4xl': '2.25rem',
   '5xl': '3rem',
   '6xl': '4rem',
+  0: '0.875rem',
+  1: '1rem',
+  2: '1.25rem',
+  3: '1.5rem',
+  4: '1.875rem',
+  5: '2.25rem',
+  6: '3rem',
+  7: '4rem',
+  8: '4.5rem',
 }
 
 const lineHeights = {
