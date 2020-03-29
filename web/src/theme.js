@@ -97,14 +97,17 @@ const colors = {
   ...baseColors,
   primary: baseColors.purple[6],
   primaryHover: baseColors.purple[5],
+  primaryHoverDark: baseColors.purple[7],
   secondary: baseColors.teal[5],
   secondaryHover: baseColors.teal[3],
   dark: baseColors.gray[9],
   grayDark: baseColors.gray[9],
   background: baseColors.light,
+  light: baseColors.gray[0],
   inputBg: baseColors.white,
   text: baseColors.gray[8],
   textMuted: baseColors.gray[5],
+  textMutedHighlight: baseColors.gray[6],
   danger: baseColors.red[3],
   textDanger: baseColors.red[6],
   warning: baseColors.yellow[3],
@@ -119,6 +122,7 @@ const colors = {
       background: baseColors.gray[9],
       text: baseColors.gray[0],
       textMuted: baseColors.gray[4],
+      textMutedHighlight: baseColors.gray[3],
       textDanger: baseColors.red[2],
       light: baseColors.gray[8],
       inputBg: baseColors.gray[8],
@@ -280,6 +284,17 @@ const inputs = {
   checkbox: baseInputGroupStyles,
 }
 
+const baseLinkStyles = {
+  fontWeight: 'medium',
+  fontFamily: 'body',
+  transition: 'all 150ms ease-in-out',
+
+  '&:focus': {
+    outline: 'none',
+    boxShadow: 'outline',
+  },
+}
+
 const theme = {
   ...tailwind,
   useCustomProperties: true,
@@ -341,7 +356,20 @@ const theme = {
   },
   links: {
     nav: {
-      fontFamily: 'body',
+      ...baseLinkStyles,
+      color: 'textMutedHighlight',
+
+      '&:hover, &:focus': {
+        color: 'text',
+      },
+    },
+    primary: {
+      ...baseLinkStyles,
+      color: 'primary',
+
+      '&:hover, &:focus': {
+        color: 'primaryHoverDark',
+      },
     },
   },
 }
