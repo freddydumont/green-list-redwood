@@ -326,6 +326,26 @@ const theme = {
         mb: 1,
       },
     },
+    flex: {
+      center: {
+        alignItems: 'center',
+        justifyContent: 'center',
+      },
+      between: {
+        alignItems: 'center',
+        justifyContent: 'space-between',
+      },
+    },
+  },
+  buttons: {
+    ...buttons,
+    form: {
+      ...buttons.primary,
+      mr: 2,
+      '&:last-child': {
+        mr: 0,
+      },
+    },
   },
   forms: {
     ...inputs,
@@ -342,16 +362,6 @@ const theme = {
       mx: 'auto',
       py: 6,
       px: 8,
-    },
-  },
-  buttons: {
-    ...buttons,
-    form: {
-      ...buttons.primary,
-      mr: 2,
-      '&:last-child': {
-        mr: 0,
-      },
     },
   },
   links: {
@@ -382,6 +392,17 @@ const theme = {
       '&:hover, &:focus': {
         color: 'primaryHoverDark',
       },
+    },
+  },
+  text: {
+    heading: {
+      fontWeight: 'extrabold',
+      letterSpacing: 'tight',
+      color: 'text',
+    },
+    copy: {
+      fontSize: ['lg', 'xl'],
+      color: 'textMutedHighlight',
     },
   },
 }
