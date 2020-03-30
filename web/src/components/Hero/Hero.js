@@ -117,7 +117,16 @@ const Hero = () => {
                   Get started
                 </Button>
                 <Box sx={{ mt: [3, 0], ml: [null, 3] }}>
-                  <Button as="a" href="#" variant="gray">
+                  <Button
+                    href="#"
+                    variant="gray"
+                    onClick={() => {
+                      document.querySelector('#how-it-works').scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start',
+                      })
+                    }}
+                  >
                     Learn more
                   </Button>
                 </Box>

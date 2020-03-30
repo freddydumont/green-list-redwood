@@ -8,6 +8,7 @@ const HowItWorks = () => {
         {/* TITLE COPY */}
         <Box sx={{ textAlign: [null, null, null, 'center'] }}>
           <Text
+            id="how-it-works"
             as="p"
             sx={{
               fontSize: 'base',
