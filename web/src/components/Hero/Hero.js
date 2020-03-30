@@ -113,12 +113,12 @@ const Hero = () => {
                   justifyContent: [null, 'center', null, 'start'],
                 }}
               >
-                <Button as={Link} to={routes.form()} href="#">
+                <Button as={Link} to={routes.form()}>
                   Get started
                 </Button>
                 <Box sx={{ mt: [3, 0], ml: [null, 3] }}>
                   <Button
-                    href="#"
+                    sx={{ width: 'full' }}
                     variant="gray"
                     onClick={() => {
                       document.querySelector('#how-it-works').scrollIntoView({

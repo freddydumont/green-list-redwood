@@ -1,5 +1,6 @@
 /** @jsx jsx **/
-import { jsx, Box, Text, Flex } from 'theme-ui'
+import { jsx, Box, Text, Flex, Button } from 'theme-ui'
+import { Link, routes } from '@redwoodjs/router'
 
 const HowItWorks = () => {
   return (
@@ -69,6 +70,12 @@ const HowItWorks = () => {
             />
           </ul>
         </Box>
+
+        <Flex variant="flex.center" mt={10}>
+          <Button as={Link} to={routes.form()}>
+            Sign up now
+          </Button>
+        </Flex>
       </Box>
     </Box>
   )
