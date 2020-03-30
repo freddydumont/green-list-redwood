@@ -325,10 +325,10 @@ function MobileMenu({ isOpen, setOpen }) {
                     px: 5,
                     py: 3,
                     textAlign: 'center',
-                    bg: 'light',
+                    bg: 'formBackground',
 
                     '&:hover, &:focus': {
-                      bg: 'gray.1',
+                      bg: 'light',
                     },
                   }}
                 >

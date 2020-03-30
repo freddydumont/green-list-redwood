@@ -33,7 +33,7 @@ const baseColors = {
     'hsl(210, 31%, 80%)',
     'hsl(211, 27%, 70%)',
     'hsl(209, 23%, 60%)',
-    'hsl(210, 22%, 49%)',
+    'hsl(210, 22%, 47%)',
     'hsl(209, 28%, 39%)',
     'hsl(209, 34%, 30%)',
     'hsl(211, 39%, 23%)',
@@ -102,7 +102,8 @@ const colors = {
   secondaryHover: baseColors.teal[3],
   dark: baseColors.gray[9],
   grayDark: baseColors.gray[9],
-  background: baseColors.light,
+  background: baseColors.white,
+  formBackground: baseColors.light,
   light: baseColors.gray[0],
   inputBg: baseColors.white,
   text: baseColors.gray[8],
@@ -119,7 +120,9 @@ const colors = {
   highlightMore: baseColors.purple[1],
   modes: {
     dark: {
+      primary: baseColors.purple[4],
       background: baseColors.gray[9],
+      formBackground: baseColors.gray[9],
       text: baseColors.gray[0],
       textMuted: baseColors.gray[4],
       textMutedHighlight: baseColors.gray[3],
@@ -367,7 +370,7 @@ const theme = {
   links: {
     nav: {
       ...baseLinkStyles,
-      color: 'textMutedHighlight',
+      color: 'textMuted',
 
       '&:hover, &:focus': {
         color: 'text',
@@ -375,7 +378,7 @@ const theme = {
     },
     menu: {
       ...baseLinkStyles,
-      color: 'textMutedHighlight',
+      color: 'textMuted',
       display: 'block',
       px: 3,
       py: 2,
@@ -402,7 +405,7 @@ const theme = {
     },
     copy: {
       fontSize: ['lg', 'xl'],
-      color: 'textMutedHighlight',
+      color: 'textMuted',
     },
   },
 }

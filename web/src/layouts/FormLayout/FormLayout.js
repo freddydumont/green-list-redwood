@@ -1,10 +1,10 @@
-import { Container } from 'theme-ui'
+import { Container, Box } from 'theme-ui'
 
 import Header from 'src/components/Header/Header'
 
 const FormLayout = ({ children }) => {
   return (
-    <>
+    <Box bg="formBackground">
       <Header />
       <Container
         as="main"
@@ -15,7 +15,7 @@ const FormLayout = ({ children }) => {
       >
         {children}
       </Container>
-    </>
+    </Box>
   )
 }
 

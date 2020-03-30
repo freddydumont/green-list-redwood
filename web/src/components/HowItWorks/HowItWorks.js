@@ -109,7 +109,7 @@ function ListItem({ count, title, copy, iconPath }) {
               mt: 2,
               fontSize: ['base', null, null, 'lg'],
               lineHeight: 6,
-              color: 'textMutedHighlight',
+              color: 'textMuted',
             }}
           >
             {copy}
