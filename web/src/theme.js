@@ -363,6 +363,18 @@ const theme = {
         color: 'text',
       },
     },
+    menu: {
+      ...baseLinkStyles,
+      color: 'textMutedHighlight',
+      display: 'block',
+      px: 3,
+      py: 2,
+      borderRadius: 'md',
+      '&:hover, &:focus': {
+        color: 'text',
+        bg: 'light',
+      },
+    },
     primary: {
       ...baseLinkStyles,
       color: 'primary',

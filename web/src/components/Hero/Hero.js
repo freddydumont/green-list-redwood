@@ -2,74 +2,155 @@
 import { jsx, Box, Text, Button, Flex, Link as NavLink } from 'theme-ui'
 import { Link, routes } from '@redwoodjs/router'
 import { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 
-const MobileMenu = ({ setOpen }) => {
+const MobileMenuButton = ({ path, setOpen }) => {
   return (
-    <div
-      {...{
-        'x-show': 'open',
-        'x-transition:enter': 'duration-150 ease-out',
-        'x-transition:enter-start': 'opacity-0 scale-95',
-        'x-transition:enter-end': 'opacity-100 scale-100',
-        'x-transition:leave': 'duration-100 ease-in',
-        'x-transition:leave-start': 'opacity-100 scale-100',
-        'x-transition:leave-end': 'opacity-0 scale-95',
+    <button
+      onClick={setOpen}
+      type="button"
+      sx={{
+        display: 'inline-flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        p: 2,
+        borderRadius: 'md',
+        color: 'textMuted',
+        transition: 'all 150ms ease-in-out',
+
+        '&:hover': {
+          color: 'textMutedHighlight',
+          bg: 'light',
+        },
+
+        '&:focus': {
+          outline: 'none',
+          boxShadow: 'outline',
+          color: 'textMutedHighlight',
+          bg: 'light',
+        },
       }}
-      className="absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden"
     >
-      <div className="rounded-lg shadow-md">
-        <div className="rounded-lg bg-white shadow-xs overflow-hidden">
-          <div className="px-5 pt-4 flex items-center justify-between">
-            <div>
-              <img className="h-8 w-auto" src="/img/dhamma_wheel.svg" alt="" />
-            </div>
-            <div className="-mr-2">
-              <button
-                onClick={() => setOpen(false)}
-                type="button"
-                className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out"
+      <svg
+        sx={{ height: 6, width: 6 }}
+        stroke="currentColor"
+        fill="none"
+        viewBox="0 0 24 24"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="2"
+          d={path}
+        />
+      </svg>
+    </button>
+  )
+}
+
+const MobileMenu = ({ isOpen, setOpen }) => {
+  const variants = {
+    hidden: {
+      opacity: 0,
+      scale: 0.95,
+      transition: {
+        ease: 'easeIn',
+        duration: 0.1,
+      },
+    },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        ease: 'easeOut',
+        duration: 0.15,
+      },
+    },
+  }
+
+  return (
+    <AnimatePresence>
+      {isOpen && (
+        <motion.div
+          sx={{
+            position: 'absolute',
+            top: 0,
+            right: 0,
+            left: 0,
+            p: 2,
+            transformOrigin: 'top right',
+            display: [null, null, 'none'],
+          }}
+          variants={variants}
+          initial="hidden"
+          animate="visible"
+          exit="hidden"
+        >
+          <Box sx={{ borderRadius: 'lg', boxShadow: 'md' }}>
+            <Box
+              sx={{
+                borderRadius: 'lg',
+                boxShadow: 'xs',
+                bg: 'background',
+                overflow: 'hidden',
+              }}
+            >
+              <Flex
+                sx={{
+                  px: 5,
+                  pt: 4,
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                }}
               >
-                <svg
-                  className="h-6 w-6"
-                  stroke="currentColor"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M6 18L18 6M6 6l12 12"
+                <div>
+                  <img
+                    sx={{ height: [8, 10], width: 'auto' }}
+                    src="/img/dhamma_wheel.svg"
+                    alt="dhamma wheel"
                   />
-                </svg>
-              </button>
-            </div>
-          </div>
-          <div className="px-2 pt-2 pb-3">
-            <a
-              href="#"
-              className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out"
-            >
-              Product
-            </a>
-            <a
-              href="#"
-              className="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out"
-            >
-              Features
-            </a>
-          </div>
-          <div>
-            <a
-              href="#"
-              className="block w-full px-5 py-3 text-center font-medium text-indigo-600 bg-gray-50 hover:bg-gray-100 hover:text-indigo-700 focus:outline-none focus:bg-gray-100 focus:text-indigo-700 transition duration-150 ease-in-out"
-            >
-              Log in
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
+                </div>
+                <div sx={{ mr: -2 }}>
+                  <MobileMenuButton
+                    path="M6 18L18 6M6 6l12 12"
+                    setOpen={() => setOpen(false)}
+                  />
+                </div>
+              </Flex>
+              <Box px={2} pt={2} pb={3}>
+                <NavLink variant="menu" href="#">
+                  Product
+                </NavLink>
+
+                <NavLink sx={{ mt: 1 }} variant="menu" href="#">
+                  Features
+                </NavLink>
+              </Box>
+              <div>
+                <NavLink
+                  variant="primary"
+                  href="#"
+                  sx={{
+                    display: 'block',
+                    width: 'full',
+                    px: 5,
+                    py: 3,
+                    textAlign: 'center',
+                    bg: 'light',
+
+                    '&:hover, &:focus': {
+                      bg: 'gray.1',
+                    },
+                  }}
+                >
+                  Log in
+                </NavLink>
+              </div>
+            </Box>
+          </Box>
+        </motion.div>
+      )}
+    </AnimatePresence>
   )
 }
 
@@ -103,23 +184,8 @@ const Hero = () => {
 
   return (
     <section>
-      <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/@tailwindcss/ui@latest/dist/tailwind-ui.css"
-      ></link>
-      <Box
-        sx={{
-          position: 'relative',
-          bg: 'background',
-          overflow: 'hidden',
-        }}
-      >
-        <Box
-          sx={{
-            maxWidth: 'screen-xl',
-            mx: 'auto',
-          }}
-        >
+      <Box sx={{ position: 'relative', bg: 'background', overflow: 'hidden' }}>
+        <Box sx={{ maxWidth: 'screen-xl', mx: 'auto' }}>
           <Box
             sx={{
               position: 'relative',
@@ -130,12 +196,7 @@ const Hero = () => {
               width: [null, null, null, 'full'],
             }}
           >
-            <Box
-              sx={{
-                pt: 6,
-                px: [4, 6, 8],
-              }}
-            >
+            <Box pt={6} px={[4, 6, 8]}>
               <Flex
                 as="nav"
                 sx={{
@@ -162,10 +223,7 @@ const Hero = () => {
                     <NavLink variant="nav" href="#">
                       {/* Dhamma wheel icon from https://github.com/twitter/twemoji/ */}
                       <img
-                        sx={{
-                          height: [8, 10],
-                          width: 'auto',
-                        }}
+                        sx={{ height: [8, 10], width: 'auto' }}
                         src="/img/dhamma_wheel.svg"
                         alt="dhamma wheel"
                       />
@@ -177,47 +235,10 @@ const Hero = () => {
                         display: ['flex', null, 'none'],
                       }}
                     >
-                      <button
-                        onClick={() => setOpen(true)}
-                        type="button"
-                        sx={{
-                          display: 'inline-flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          p: 2,
-                          borderRadius: 'md',
-                          color: 'textMuted',
-                          transition: 'all 150ms ease-in-out',
-
-                          '&:hover': {
-                            color: 'textMutedHighlight',
-                            bg: 'light',
-                          },
-
-                          '&:focus': {
-                            outline: 'none',
-                            color: 'textMutedHighlight',
-                            bg: 'light',
-                          },
-                        }}
-                      >
-                        <svg
-                          sx={{
-                            height: 6,
-                            width: 6,
-                          }}
-                          stroke="currentColor"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                            d="M4 6h16M4 12h16M4 18h16"
-                          />
-                        </svg>
-                      </button>
+                      <MobileMenuButton
+                        path="M4 6h16M4 12h16M4 18h16"
+                        setOpen={() => setOpen(true)}
+                      />
                     </Box>
                   </Flex>
                 </Flex>
@@ -226,7 +247,7 @@ const Hero = () => {
               </Flex>
             </Box>
 
-            {isOpen && <MobileMenu setOpen={setOpen} />}
+            <MobileMenu {...{ isOpen, setOpen }} />
 
             <Box
               sx={{
@@ -236,11 +257,7 @@ const Hero = () => {
                 maxWidth: 'screen-xl',
               }}
             >
-              <div
-                sx={{
-                  textAlign: [null, 'center', null, 'left'],
-                }}
-              >
+              <div sx={{ textAlign: [null, 'center', null, 'left'] }}>
                 <Text
                   as="h2"
                   sx={{
@@ -252,11 +269,7 @@ const Hero = () => {
                   }}
                 >
                   {'Give service at '}
-                  <br
-                    sx={{
-                      display: [null, null, null, null, 'none'],
-                    }}
-                  />
+                  <br sx={{ display: [null, null, null, null, 'none'] }} />
                   <span sx={{ color: 'primary' }}>Dhamma Suttama</span>
                 </Text>
                 <Text
@@ -282,12 +295,7 @@ const Hero = () => {
                   <Button as={Link} to={routes.form()} href="#">
                     Get started
                   </Button>
-                  <Box
-                    sx={{
-                      mt: [3, 0],
-                      ml: [null, 3],
-                    }}
-                  >
+                  <Box sx={{ mt: [3, 0], ml: [null, 3] }}>
                     <Button as="a" href="#" variant="gray">
                       Learn more
                     </Button>
