@@ -47,7 +47,7 @@ const HowItWorks = () => {
 
         {/* FEATURE LIST */}
         <Box>
-          <ul sx={{ maxWidth: '3xl', mx: [null, null, null, 'auto'] }}>
+          <ol sx={{ maxWidth: '3xl', mx: [null, null, null, 'auto'] }}>
             <ListItem
               count={1}
               title="Sign up"
@@ -68,7 +68,7 @@ const HowItWorks = () => {
                     for a project matching your skills!"
               iconPath="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
             />
-          </ul>
+          </ol>
         </Box>
 
         <Flex variant="flex.center" mt={10}>
