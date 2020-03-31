@@ -17,6 +17,7 @@ import {
 } from '@theme-ui/components'
 import { useMachine } from '@xstate/react'
 import isEmpty from 'lodash/isEmpty'
+import { motion } from 'framer-motion'
 
 import { InputMachine } from 'src/inputMachine'
 import { useFormService } from 'src/hooks/useFormService'
@@ -149,28 +150,43 @@ export function FormInputChoice({ type, name, label, options, ...rest }) {
 }
 
 /** Presentational layer for FormInputChoice */
-export function FormInputChoiceBox({ name, label, children }) {
+export function FormInputChoiceBox({ name, label, children, animate = false }) {
   const { errors } = useFormContext()
   const hasError = errors?.[name]
 
   return (
-    <Box variant={hasError ? 'box.formError' : 'box.form'}>
-      {label && <Label>{label}</Label>}
-      <Box
-        sx={{
-          boxShadow: hasError ? 'error' : 'none',
-          maxWidth: 'max-content',
-          pr: 2,
-          borderRadius: '4px',
-        }}
-      >
-        {children}
+    <motion.div
+      variants={{
+        hidden: { opacity: 0 },
+        show: {
+          opacity: 1,
+          transition: {
+            delayChildren: 0.05,
+            staggerChildren: 0.01,
+          },
+        },
+      }}
+      initial={animate ? 'hidden' : false}
+      animate="show"
+    >
+      <Box variant={hasError ? 'box.formError' : 'box.form'}>
+        {label && <Label>{label}</Label>}
+        <Box
+          sx={{
+            boxShadow: hasError ? 'error' : 'none',
+            maxWidth: 'max-content',
+            pr: 2,
+            borderRadius: '4px',
+          }}
+        >
+          {children}
+        </Box>
+        <ErrorMessage
+          as={<Text color="textDanger" mb={8} />}
+          name={name}
+          errors={errors}
+        />
       </Box>
-      <ErrorMessage
-        as={<Text color="textDanger" mb={8} />}
-        name={name}
-        errors={errors}
-      />
-    </Box>
+    </motion.div>
   )
 }

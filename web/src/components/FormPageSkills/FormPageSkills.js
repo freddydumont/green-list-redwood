@@ -3,6 +3,7 @@ import { Divider, Flex, Label, Checkbox } from 'theme-ui'
 import isEqual from 'lodash/isEqual'
 import isEmpty from 'lodash/isEmpty'
 import { useFormContext, Controller } from 'react-hook-form'
+import { motion } from 'framer-motion'
 
 import FormPageLayout from 'src/layouts/FormPageLayout/FormPageLayout'
 import { useFormService } from 'src/hooks/useFormService'
@@ -198,16 +199,25 @@ const ConditionalCheckboxes = () => {
             // this template string creates a skill object with each
             // selected category as properties when the form is submitted
             name={`skills.${category}`}
+            animate
           >
             {skillsData[category].map((skill) => (
-              <Label key={skill}>
-                <Checkbox
-                  // and a skill property under the category
-                  name={`skills[${category}][${skill}]`}
-                  ref={register}
-                />
-                {skill}
-              </Label>
+              <motion.div
+                variants={{
+                  hidden: { opacity: 0 },
+                  show: { opacity: 1 },
+                }}
+                key={skill}
+              >
+                <Label>
+                  <Checkbox
+                    // and a skill property under the category
+                    name={`skills[${category}][${skill}]`}
+                    ref={register}
+                  />
+                  {skill}
+                </Label>
+              </motion.div>
             ))}
           </Controller>
         ))}
