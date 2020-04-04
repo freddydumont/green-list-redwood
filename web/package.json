@@ -16,6 +16,7 @@
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "redwood-nprogress": "^1.0.0",
     "tailwindcss": "^1.2.0",
     "theme-ui": "^0.3.1",
     "xstate": "^4.8.0",
