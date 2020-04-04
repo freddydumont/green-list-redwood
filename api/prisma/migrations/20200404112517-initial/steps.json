@@ -29,7 +29,7 @@
         "source": "DS"
       },
       "argument": "provider",
-      "value": "\"sqlite\""
+      "value": "\"postgresql\""
     },
     {
       "tag": "CreateArgument",
