@@ -71,7 +71,7 @@ const HowItWorks = () => {
           </ol>
         </Box>
 
-        <Flex variant="flex.center" mt={10}>
+        <Flex variant="flex.center" mt={12} mb={12}>
           <Button as={Link} to={routes.form()}>
             Sign up now
           </Button>

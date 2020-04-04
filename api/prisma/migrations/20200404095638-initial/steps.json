@@ -19,14 +19,6 @@
       ]
     },
     {
-      "tag": "CreateEnum",
-      "enum": "Language",
-      "values": [
-        "fr",
-        "en"
-      ]
-    },
-    {
       "tag": "CreateSource",
       "source": "DS"
     },
@@ -329,7 +321,7 @@
     {
       "tag": "CreateField",
       "model": "SkillDomain",
-      "field": "domain",
+      "field": "name",
       "type": "String",
       "arity": "Required"
     },
@@ -339,7 +331,7 @@
         "path": {
           "tag": "Field",
           "model": "SkillDomain",
-          "field": "domain"
+          "field": "name"
         },
         "directive": "unique"
       }
@@ -408,7 +400,7 @@
     {
       "tag": "CreateField",
       "model": "Skill",
-      "field": "skill",
+      "field": "name",
       "type": "String",
       "arity": "Required"
     },
@@ -418,7 +410,7 @@
         "path": {
           "tag": "Field",
           "model": "Skill",
-          "field": "skill"
+          "field": "name"
         },
         "directive": "unique"
       }
@@ -487,7 +479,7 @@
     {
       "tag": "CreateField",
       "model": "Availability",
-      "field": "availability",
+      "field": "name",
       "type": "String",
       "arity": "Required"
     },
@@ -497,7 +489,7 @@
         "path": {
           "tag": "Field",
           "model": "Availability",
-          "field": "availability"
+          "field": "name"
         },
         "directive": "unique"
       }
@@ -505,6 +497,78 @@
     {
       "tag": "CreateField",
       "model": "Availability",
+      "field": "users",
+      "type": "User",
+      "arity": "List"
+    },
+    {
+      "tag": "CreateModel",
+      "model": "Language"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Language",
+      "field": "id",
+      "type": "Int",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "Language",
+          "field": "id"
+        },
+        "directive": "id"
+      }
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "Language",
+          "field": "id"
+        },
+        "directive": "default"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "Language",
+          "field": "id"
+        },
+        "directive": "default"
+      },
+      "argument": "",
+      "value": "autoincrement()"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Language",
+      "field": "name",
+      "type": "String",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "Language",
+          "field": "name"
+        },
+        "directive": "unique"
+      }
+    },
+    {
+      "tag": "CreateField",
+      "model": "Language",
       "field": "users",
       "type": "User",
       "arity": "List"
