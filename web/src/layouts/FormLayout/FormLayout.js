@@ -1,21 +1,25 @@
 import { Container, Box } from 'theme-ui'
 
-import Header from 'src/components/Header/Header'
 import GlobalLayout from 'src/layouts/GlobalLayout/GlobalLayout'
+import NavBar from 'src/components/NavBar/NavBar'
 
 const FormLayout = ({ children }) => {
   return (
     <GlobalLayout>
       <Box bg="formBackground">
-        <Header />
         <Container
           as="main"
           sx={{
             position: 'relative',
-            minHeight: 'calc(100vh - 74px)', // 74px is header height
+            minHeight: '100vh',
           }}
         >
-          {children}
+          <>
+            <Box pb={6}>
+              <NavBar />
+            </Box>
+            {children}
+          </>
         </Container>
       </Box>
     </GlobalLayout>

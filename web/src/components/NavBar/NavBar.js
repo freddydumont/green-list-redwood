@@ -1,5 +1,5 @@
 /** @jsx jsx **/
-import { jsx, Box, Flex, Link as NavLink } from 'theme-ui'
+import { jsx, Box, Flex, NavLink } from 'theme-ui'
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
@@ -17,7 +17,7 @@ export default NavBar
 
 function FullNavBar({ setOpen }) {
   return (
-    <Box pt={6} px={[4, 6, 8]}>
+    <>
       <Flex
         as="nav"
         sx={{
@@ -35,7 +35,7 @@ function FullNavBar({ setOpen }) {
           }}
         >
           <Flex variant="flex.between" sx={{ width: ['full', null, 'auto'] }}>
-            <NavLink variant="nav" href="#">
+            <NavLink href="#">
               <img
                 sx={{ height: [8, 10], width: 'auto' }}
                 src="/img/dhamma_wheel.svg"
@@ -59,7 +59,7 @@ function FullNavBar({ setOpen }) {
 
         <FullWidthMenu />
       </Flex>
-    </Box>
+    </>
   )
 }
 
@@ -218,12 +218,8 @@ function FullWidthMenu() {
         },
       }}
     >
-      <NavLink variant="nav" href="#">
-        Product
-      </NavLink>
-      <NavLink variant="nav" href="#">
-        Features
-      </NavLink>
+      <NavLink href="#">Product</NavLink>
+      <NavLink href="#">Features</NavLink>
       <NavLink variant="primary" href="#">
         Log in
       </NavLink>

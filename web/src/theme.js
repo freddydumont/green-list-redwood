@@ -364,7 +364,7 @@ const theme = {
       maxWidth: 'screen-lg',
       mx: 'auto',
       py: 6,
-      px: 8,
+      px: [6, 8],
     },
   },
   links: {

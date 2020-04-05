@@ -21,7 +21,9 @@ const Hero = () => {
             width: [null, null, null, 'full'],
           }}
         >
-          <NavBar />
+          <Box pt={6} px={[4, 6, 8]}>
+            <NavBar />
+          </Box>
 
           <Box
             sx={{
