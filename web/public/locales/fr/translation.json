@@ -1,4 +1,8 @@
 {
-  "Give service at ": "",
-  "Dhamma Suttama": "Dhamma Suttama"
+  "navbar": {
+    "logo_alt": "roue du dhamma",
+    "Sign up": "S'enregistrer",
+    "change_lang": "English",
+    "Log in": "Se connecter"
+  }
 }

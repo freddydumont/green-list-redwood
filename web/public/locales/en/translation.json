@@ -1,4 +1,8 @@
 {
-  "Give service at ": "Give service at ",
-  "Dhamma Suttama": "Dhamma Suttama"
+  "navbar": {
+    "logo_alt": "dhamma wheel",
+    "Sign up": "Sign up",
+    "change_lang": "Français",
+    "Log in": "Log in"
+  }
 }

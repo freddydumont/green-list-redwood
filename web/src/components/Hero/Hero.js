@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next'
 import NavBar from 'src/components/NavBar/NavBar'
 
 const Hero = () => {
-  const { t } = useTranslation()
+  const { t } = useTranslation(['home'])
 
   return (
     <Box
@@ -45,9 +45,11 @@ const Hero = () => {
                   lineHeight: [10, 'none'],
                 }}
               >
-                {t('Give service at ')}
+                {t('home:hero.Give service at ')}
                 <br sx={{ display: [null, null, null, null, 'none'] }} />
-                <span sx={{ color: 'primary' }}>{t('Dhamma Suttama')}</span>
+                <span sx={{ color: 'primary' }}>
+                  {t('home:hero.Dhamma Suttama')}
+                </span>
               </Text>
               <Text
                 as="p"
@@ -58,8 +60,7 @@ const Hero = () => {
                   maxWidth: [null, 'xl'],
                 }}
               >
-                If you have specialized skills, or you&apos;re available for
-                serving in the kitchen, Dhamma Suttama would like to know!
+                {t('home:hero.copy')}
               </Text>
               <div
                 sx={{
@@ -69,7 +70,7 @@ const Hero = () => {
                 }}
               >
                 <Button as={Link} to={routes.form()}>
-                  Get started
+                  {t('home:hero.Get started')}
                 </Button>
                 <Box sx={{ mt: [3, 0], ml: [null, 3] }}>
                   <Button
@@ -82,7 +83,7 @@ const Hero = () => {
                       })
                     }}
                   >
-                    Learn more
+                    {t('home:hero.Learn more')}
                   </Button>
                 </Box>
               </div>
@@ -145,7 +146,7 @@ const Hero = () => {
               img/43232942312_fa286f2f0d_k_n8c4zf_c_scale,w_1384.jpg 1384w,
               img/43232942312_fa286f2f0d_k_n8c4zf_c_scale,w_1400.jpg 1400w"
             src="43232942312_fa286f2f0d_k_n8c4zf_c_scale,w_1400.jpg"
-            alt="étagère de coussins de méditation"
+            alt={t('home:hero.cushions_alt')}
           />
         </picture>
       </Box>

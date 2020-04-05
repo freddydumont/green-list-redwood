@@ -2,7 +2,11 @@
 
 ## Internationalization
 
-We use [i18next](https://www.i18next.com) to manage translations. See [this guide](https://www.robinwieruch.de/react-internationalization) to get up to speed.
+We use [i18next][1] to manage translations. See [this guide][2] to get up to speed.
+
+Translation files are [namespaced][3] into pages, and nested into components. Ex: `t('home:hero.Get started')`.
+
+Common components like `NavBar` do not use namespacing. They end up in the `translation.json` file. They can still be nested into components if it makes sense.
 
 Use `yarn run extract` to extract new translations to the json files. By default, they will be initialized with the specified key.
 
@@ -14,6 +18,10 @@ So the workflow is:
 3. Enter the translation in the French file.
 
 That way we only need to touch the French file and we have the actual text directly in the code.
+
+[1]: https://www.i18next.com
+[2]: https://www.robinwieruch.de/react-internationalization
+[3]: https://www.robinwieruch.de/react-internationalization#react-with-react-i18next-multiple-files-namespaces
 
 # Redwood
 >**HEADS UP:** RedwoodJS is _NOT_ ready for use in Production. It relies heavily on Prisma2, which is currently in testing with an expected production release coming soon. See status at ["Is Prisma2 Ready?"](https://isprisma2ready.com)

@@ -3,6 +3,7 @@ import { jsx, Box, Flex, NavLink } from 'theme-ui'
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Link, routes } from '@redwoodjs/router'
+import { useTranslation } from 'react-i18next'
 
 const NavBar = () => {
   const [isOpen, setOpen] = useState(false)
@@ -59,12 +60,13 @@ function FullNavBar({ setOpen }) {
 }
 
 function LogoLink() {
+  const { t } = useTranslation()
   return (
     <NavLink as={Link} to={routes.home()}>
       <img
         sx={{ height: [8, 10], width: 'auto' }}
         src="/img/dhamma_wheel.svg"
-        alt="dhamma wheel"
+        alt={t('navbar.logo_alt')}
       />
     </NavLink>
   )
@@ -115,6 +117,13 @@ function MobileMenuButton({ path, setOpen }) {
 }
 
 function MobileMenu({ isOpen, setOpen }) {
+  const { t, i18n } = useTranslation()
+
+  const changeLanguage = () => {
+    const code = i18n.language === 'en' ? 'fr' : 'en'
+    i18n.changeLanguage(code)
+  }
+
   const variants = {
     hidden: {
       opacity: 0,
@@ -172,11 +181,16 @@ function MobileMenu({ isOpen, setOpen }) {
               </Flex>
               <Box px={2} pt={2} pb={3}>
                 <NavLink variant="menu" href="#">
-                  Product
+                  {t('navbar.Sign up')}
                 </NavLink>
 
-                <NavLink sx={{ mt: 1 }} variant="menu" href="#">
-                  Features
+                <NavLink
+                  role="button"
+                  onClick={changeLanguage}
+                  sx={{ mt: 1 }}
+                  variant="menu"
+                >
+                  {t('navbar.change_lang')}
                 </NavLink>
               </Box>
               <div>
@@ -196,7 +210,7 @@ function MobileMenu({ isOpen, setOpen }) {
                     },
                   }}
                 >
-                  Log in
+                  {t('navbar.Log in')}
                 </NavLink>
               </div>
             </Box>
@@ -208,6 +222,13 @@ function MobileMenu({ isOpen, setOpen }) {
 }
 
 function FullWidthMenu() {
+  const { t, i18n } = useTranslation()
+
+  const changeLanguage = () => {
+    const code = i18n.language === 'en' ? 'fr' : 'en'
+    i18n.changeLanguage(code)
+  }
+
   return (
     <Box
       sx={{
@@ -219,10 +240,12 @@ function FullWidthMenu() {
         },
       }}
     >
-      <NavLink href="#">Product</NavLink>
-      <NavLink href="#">Features</NavLink>
+      <NavLink href="#">{t('navbar.Sign up')}</NavLink>
+      <NavLink role="button" onClick={changeLanguage}>
+        {t('navbar.change_lang')}
+      </NavLink>
       <NavLink variant="primary" href="#">
-        Log in
+        {t('navbar.Log in')}
       </NavLink>
     </Box>
   )
