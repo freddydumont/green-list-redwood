@@ -1,3 +1,20 @@
+# Dhamma list
+
+## Internationalization
+
+We use [i18next](https://www.i18next.com) to manage translations. See [this guide](https://www.robinwieruch.de/react-internationalization) to get up to speed.
+
+Use `yarn run extract` to extract new translations to the json files. By default, they will be initialized with the specified key.
+
+So the workflow is:
+
+1. Wrap the english text in `t('my text')`
+    - For a single word, we can enter it direcly eg. `t('Welcome')`, but for a paragraph it's better to use a meaningful identifier eg. `t('how it works 1')`
+2. Use the extract script: `npm run extract`
+3. Enter the translation in the French file.
+
+That way we only need to touch the French file and we have the actual text directly in the code.
+
 # Redwood
 >**HEADS UP:** RedwoodJS is _NOT_ ready for use in Production. It relies heavily on Prisma2, which is currently in testing with an expected production release coming soon. See status at ["Is Prisma2 Ready?"](https://isprisma2ready.com)
 
