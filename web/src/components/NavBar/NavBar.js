@@ -2,6 +2,7 @@
 import { jsx, Box, Flex, NavLink } from 'theme-ui'
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { Link, routes } from '@redwoodjs/router'
 
 const NavBar = () => {
   const [isOpen, setOpen] = useState(false)
@@ -35,13 +36,7 @@ function FullNavBar({ setOpen }) {
           }}
         >
           <Flex variant="flex.between" sx={{ width: ['full', null, 'auto'] }}>
-            <NavLink href="#">
-              <img
-                sx={{ height: [8, 10], width: 'auto' }}
-                src="/img/dhamma_wheel.svg"
-                alt="dhamma wheel"
-              />
-            </NavLink>
+            <LogoLink />
             <Box
               sx={{
                 mr: [-2],
@@ -60,6 +55,18 @@ function FullNavBar({ setOpen }) {
         <FullWidthMenu />
       </Flex>
     </>
+  )
+}
+
+function LogoLink() {
+  return (
+    <NavLink as={Link} to={routes.home()}>
+      <img
+        sx={{ height: [8, 10], width: 'auto' }}
+        src="/img/dhamma_wheel.svg"
+        alt="dhamma wheel"
+      />
+    </NavLink>
   )
 }
 
@@ -155,13 +162,7 @@ function MobileMenu({ isOpen, setOpen }) {
               }}
             >
               <Flex variant="flex.between" px={5} pt={4}>
-                <div>
-                  <img
-                    sx={{ height: [8, 10], width: 'auto' }}
-                    src="/img/dhamma_wheel.svg"
-                    alt="dhamma wheel"
-                  />
-                </div>
+                <LogoLink />
                 <div sx={{ mr: -2 }}>
                   <MobileMenuButton
                     path="M6 18L18 6M6 6l12 12"
