@@ -180,7 +180,7 @@ function MobileMenu({ isOpen, setOpen }) {
                 </div>
               </Flex>
               <Box px={2} pt={2} pb={3}>
-                <NavLink variant="menu" href="#">
+                <NavLink variant="menu" as={Link} to={routes.form()}>
                   {t('navbar.Sign up')}
                 </NavLink>
 
@@ -240,7 +240,9 @@ function FullWidthMenu() {
         },
       }}
     >
-      <NavLink href="#">{t('navbar.Sign up')}</NavLink>
+      <NavLink as={Link} to={routes.form()}>
+        {t('navbar.Sign up')}
+      </NavLink>
       <NavLink role="button" onClick={changeLanguage}>
         {t('navbar.change_lang')}
       </NavLink>
