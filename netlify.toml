@@ -1,7 +1,11 @@
 [build]
-  command = "yarn rw db up --no-db-client && yarn rw build"
+  command = "yarn rw db up && yarn rw db seed && yarn rw build"
   publish = "web/dist"
   functions = "api/dist/functions"
+
+[build.environment]
+  # Fix to ensure the Prisma binary is packaged with the lambda function
+  ZISI_VERSION = "0.4.0-9"
 
 [dev]
   command = "yarn rw dev"
