@@ -1,10 +1,13 @@
 /** @jsx jsx **/
 import { jsx, Box, Text, Button } from 'theme-ui'
 import { Link, routes } from '@redwoodjs/router'
+import { useTranslation } from 'react-i18next'
 
 import NavBar from 'src/components/NavBar/NavBar'
 
 const Hero = () => {
+  const { t } = useTranslation()
+
   return (
     <Box
       as="section"
@@ -42,9 +45,9 @@ const Hero = () => {
                   lineHeight: [10, 'none'],
                 }}
               >
-                {'Give service at '}
+                {t('Give service at ')}
                 <br sx={{ display: [null, null, null, null, 'none'] }} />
-                <span sx={{ color: 'primary' }}>Dhamma Suttama</span>
+                <span sx={{ color: 'primary' }}>{t('Dhamma Suttama')}</span>
               </Text>
               <Text
                 as="p"

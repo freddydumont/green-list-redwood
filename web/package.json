@@ -12,14 +12,21 @@
     "@theme-ui/style-guide": "^0.3.0",
     "@xstate/react": "^0.8.1",
     "framer-motion": "^1.10.3",
+    "i18next": "^19.3.4",
+    "i18next-browser-languagedetector": "^4.0.2",
+    "i18next-xhr-backend": "^3.2.2",
     "lodash": "^4.17.15",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-i18next": "^11.3.4",
     "redwood-nprogress": "^1.0.0",
     "tailwindcss": "^1.2.0",
     "theme-ui": "^0.3.1",
     "xstate": "^4.8.0",
     "yup": "^0.28.3"
+  },
+  "devDependencies": {
+    "i18next-parser": "^1.0.2"
   }
 }

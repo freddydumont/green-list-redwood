@@ -6,6 +6,9 @@
       "web"
     ]
   },
+  "scripts": {
+    "extract": "i18next --config i18next-parser.config.js"
+  },
   "devDependencies": {
     "@redwoodjs/core": "^0.4.0",
     "chalk": "^4.0.0"
