@@ -6,5 +6,23 @@
     "Get started": "hero.Get started",
     "Learn more": "hero.Learn more",
     "cushions_alt": "étagère de coussins de méditation"
+  },
+  "howitworks": {
+    "Dhamma Dana": "Dhamma Dana",
+    "How it works": "howitworks.How it works",
+    "copy": "howitworks.copy",
+    "Sign up now": "howitworks.Sign up now",
+    "1": {
+      "title": "title 1",
+      "copy": "copy 1"
+    },
+    "2": {
+      "title": "title 2",
+      "copy": "copy 2"
+    },
+    "3": {
+      "title": "title 3",
+      "copy": "copy 3"
+    }
   }
 }

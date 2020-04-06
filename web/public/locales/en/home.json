@@ -6,5 +6,23 @@
     "Get started": "Get started",
     "Learn more": "Learn more",
     "cushions_alt": "meditation cushions"
+  },
+  "howitworks": {
+    "Dhamma Dana": "Dhamma Dana",
+    "How it works": "How it works",
+    "copy": "Dhamma Suttama is always looking for help fulfilling the needs of the center. While you can always sign up to serve a course, you can also serve in other areas!",
+    "Sign up now": "Sign up now",
+    "1": {
+      "title": "Sign up",
+      "copy": "Fill out a quick form to register your interests, skills and availability for the service."
+    },
+    "2": {
+      "title": "Confirm your availability",
+      "copy": "After submitting your form, you'll receive a confirmation to your email address and you'll be able to update your calendar availability."
+    },
+    "3": {
+      "title": "We contact you",
+      "copy": "Depending on your preferences, we may contact you to meet the centre's immediate needs, or for a project matching your skills!"
+    }
   }
 }

@@ -1,8 +1,11 @@
 /** @jsx jsx **/
 import { jsx, Box, Text, Flex, Button } from 'theme-ui'
 import { Link, routes } from '@redwoodjs/router'
+import { useTranslation } from 'react-i18next'
 
 const HowItWorks = () => {
+  const { t } = useTranslation(['home'])
+
   return (
     <Box as="section" sx={{ py: 12, bg: 'background' }}>
       <Box sx={{ maxWidth: 'screen-xl', mx: 'auto', px: [4, 6, null, 8] }}>
@@ -20,14 +23,14 @@ const HowItWorks = () => {
               textTransform: 'uppercase',
             }}
           >
-            Dhamma Dana
+            {t('home:howitworks.Dhamma Dana')}
           </Text>
           <Text
             as="h3"
             variant="heading"
             sx={{ mt: 2, fontSize: ['3xl', '4xl'], lineHeight: [8, 10] }}
           >
-            How it works
+            {t('home:howitworks.How it works')}
           </Text>
           <Text
             as="p"
@@ -39,9 +42,7 @@ const HowItWorks = () => {
               mx: [null, null, null, 'auto'],
             }}
           >
-            Dhamma Suttama is always looking for help fulfilling the needs of
-            the center. While you can always sign up to serve a course, you can
-            also serve in other areas!
+            {t('home:howitworks.copy')}
           </Text>
         </Box>
 
@@ -73,7 +74,7 @@ const HowItWorks = () => {
 
         <Flex variant="flex.center" mt={12} mb={12}>
           <Button as={Link} to={routes.form()}>
-            Sign up now
+            {t('home:howitworks.Sign up now')}
           </Button>
         </Flex>
       </Box>
@@ -83,7 +84,9 @@ const HowItWorks = () => {
 
 export default HowItWorks
 
-function ListItem({ count, title, copy, iconPath }) {
+function ListItem({ count, iconPath }) {
+  const { t } = useTranslation(['home'])
+
   return (
     <li sx={{ mt: 12 }}>
       <Flex>
@@ -101,7 +104,7 @@ function ListItem({ count, title, copy, iconPath }) {
             <span
               sx={{ fontWeight: 'bold', fontSize: ['2xl', null, null, '3xl'] }}
             >{`${count}. `}</span>
-            {title}
+            {t(`home:howitworks.${count}.title`)}
           </Text>
           <Text
             as="p"
@@ -112,7 +115,7 @@ function ListItem({ count, title, copy, iconPath }) {
               color: 'textMuted',
             }}
           >
-            {copy}
+            {t(`home:howitworks.${count}.copy`)}
           </Text>
         </Box>
       </Flex>
