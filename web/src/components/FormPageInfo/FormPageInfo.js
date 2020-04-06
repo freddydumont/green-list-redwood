@@ -1,5 +1,6 @@
 import * as yup from 'yup'
 import { Flex, Divider } from 'theme-ui'
+import { useTranslation } from 'react-i18next'
 
 import FormPageLayout from 'src/layouts/FormPageLayout/FormPageLayout'
 import { useFormService } from 'src/hooks/useFormService'
@@ -14,20 +15,11 @@ export const userSchema = yup.object().shape({
   _hidden: yup.mixed().required(),
   firstName: yup.string().required(),
   lastName: yup.string().required(),
-  email: yup
-    .string()
-    .email()
-    .required(),
+  email: yup.string().email().required(),
   // TODO: add validation pattern to string
   dateOfBirth: yup.string().required(),
-  gender: yup
-    .mixed()
-    .oneOf(['male', 'female'])
-    .required(),
-  lang: yup
-    .mixed()
-    .oneOf(['fr', 'en'])
-    .required(),
+  gender: yup.mixed().oneOf(['male', 'female']).required(),
+  lang: yup.mixed().oneOf(['fr', 'en']).required(),
   location: yup.string().required(),
   phone: yup.string().required(),
   contactPreference: yup
@@ -38,6 +30,7 @@ export const userSchema = yup.object().shape({
 /** Collect identification and contact information */
 const FormPageInfo = () => {
   const [, send] = useFormService()
+  const { i18n } = useTranslation()
 
   const onSubmit = (data) => {
     send({
@@ -74,8 +67,8 @@ const FormPageInfo = () => {
           label="Preferred language"
           name="lang"
           options={[
-            { label: 'Français', value: 'fr' },
-            { label: 'English', value: 'en' },
+            { label: 'Français', value: 'fr', checked: i18n.language === 'fr' },
+            { label: 'English', value: 'en', checked: i18n.language === 'en' },
           ]}
         />
 

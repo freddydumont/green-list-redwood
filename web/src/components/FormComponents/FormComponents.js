@@ -136,11 +136,23 @@ export function FormInputChoice({ type, name, label, options, ...rest }) {
 
   return (
     <FormInputChoiceBox {...{ errors, name, label }}>
-      {options.map(({ label, value }) => (
+      {options.map(({ label, value, checked }) => (
         <Label key={label}>
-          {type === 'radio' && <Radio value={value} {...props} {...rest} />}
+          {type === 'radio' && (
+            <Radio
+              value={value}
+              defaultChecked={checked}
+              {...props}
+              {...rest}
+            />
+          )}
           {type === 'checkbox' && (
-            <Checkbox value={value} {...props} {...rest} />
+            <Checkbox
+              value={value}
+              defaultChecked={checked}
+              {...props}
+              {...rest}
+            />
           )}
           {label}
         </Label>
