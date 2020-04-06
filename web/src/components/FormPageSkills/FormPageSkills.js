@@ -1,5 +1,5 @@
 import * as yup from 'yup'
-import { Divider, Flex, Label, Checkbox } from 'theme-ui'
+import { Label, Checkbox } from 'theme-ui'
 import isEqual from 'lodash/isEqual'
 import isEmpty from 'lodash/isEmpty'
 import { useFormContext, Controller } from 'react-hook-form'
@@ -7,13 +7,15 @@ import { motion } from 'framer-motion'
 
 import FormPageLayout from 'src/layouts/FormPageLayout/FormPageLayout'
 import { useFormService } from 'src/hooks/useFormService'
-import FormNavButton from 'src/components/FormNavButton/FormNavButton'
 import {
   Form,
   FormField,
   FormInputChoice,
   FormInputChoiceBox,
 } from 'src/components/FormComponents/FormComponents'
+
+import FormPageAnimation from '../FormPageAnimation/FormPageAnimation'
+import FormButtonWrapper from '../FormButtonWrapper/FormButtonWrapper'
 
 export const skillSchema = yup.object().shape({
   _hidden: yup.mixed().required(),
@@ -23,7 +25,7 @@ export const skillSchema = yup.object().shape({
   skills: yup
     .mixed()
     .notRequired()
-    .test('skills', 'custom error message', function(skills) {
+    .test('skills', 'custom error message', function (skills) {
       // This is the whole form object that comes to the validation
       const formData = this?.options?.context
 
@@ -105,41 +107,36 @@ const FormPageSkills = () => {
         validationSchema={skillSchema}
         validationResolver={skillResolver}
       >
-        <FormInputChoice
-          type="checkbox"
-          label="Areas of interest"
-          name="categories"
-          options={[
-            { label: 'Kitchen', value: 'kitchen' },
-            { label: 'Maintenance', value: 'maintenance' },
-            { label: 'Technology', value: 'technology' },
-            { label: 'Accounting', value: 'accounting' },
-          ]}
-        />
+        <FormPageAnimation motionKey="skills">
+          <FormInputChoice
+            type="checkbox"
+            label="Areas of interest"
+            name="categories"
+            options={[
+              { label: 'Kitchen', value: 'kitchen' },
+              { label: 'Maintenance', value: 'maintenance' },
+              { label: 'Technology', value: 'technology' },
+              { label: 'Accounting', value: 'accounting' },
+            ]}
+          />
 
-        <ConditionalCheckboxes />
+          <ConditionalCheckboxes />
 
-        <FormField label="Other skills" name="other" as="textarea" />
+          <FormField label="Other skills" name="other" as="textarea" />
 
-        <FormInputChoice
-          type="checkbox"
-          name="consent"
-          options={[
-            {
-              label:
-                'I consent to being contacted by committees for recruitment purposes',
-            },
-          ]}
-        />
+          <FormInputChoice
+            type="checkbox"
+            name="consent"
+            options={[
+              {
+                label:
+                  'I consent to being contacted by committees for recruitment purposes',
+              },
+            ]}
+          />
+        </FormPageAnimation>
 
-        <Divider mx={0} mt={0} mb={8} />
-        <Flex
-          sx={{
-            justifyContent: 'flex-end',
-          }}
-        >
-          <FormNavButton />
-        </Flex>
+        <FormButtonWrapper />
       </Form>
     </FormPageLayout>
   )

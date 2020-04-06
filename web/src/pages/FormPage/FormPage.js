@@ -5,10 +5,10 @@ import { Text, Button } from '@theme-ui/components'
 import FormPageInfo from 'src/components/FormPageInfo/FormPageInfo'
 import FormPageSkills from 'src/components/FormPageSkills/FormPageSkills'
 import FormPageAvailability from 'src/components/FormPageAvailability/FormPageAvailability'
-import FormNavButton from 'src/components/FormNavButton/FormNavButton'
 import { formMachine } from 'src/formMachine'
 import FormPageLayout from 'src/layouts/FormPageLayout/FormPageLayout'
 import FormLayout from 'src/layouts/FormLayout/FormLayout'
+import FormButtonWrapper from 'src/components/FormButtonWrapper/FormButtonWrapper'
 
 export const ServiceContext = createContext({})
 
@@ -57,7 +57,7 @@ const FormPage = () => {
                 <Text sx={{ fontFamily: 'mono' }}>
                   <pre>{JSON.stringify(current.context, null, 2)}</pre>
                 </Text>
-                <FormNavButton />
+                <FormButtonWrapper />
               </FormPageLayout>
             ),
             /** Display a confirmation message, return home and wipe the data */

@@ -11,6 +11,8 @@ import {
   FormInputChoice,
 } from 'src/components/FormComponents/FormComponents'
 
+import FormPageAnimation from '../FormPageAnimation/FormPageAnimation'
+
 export const userSchema = yup.object().shape({
   _hidden: yup.mixed().required(),
   firstName: yup.string().required(),
@@ -47,45 +49,56 @@ const FormPageInfo = () => {
       description="The information you provide here will allow us to identify and contact you."
     >
       <Form onSubmit={onSubmit} validationSchema={userSchema}>
-        <FormField label="First Name" name="firstName" />
-        <FormField label="Last Name" name="lastName" />
-        <FormField label="Email" name="email" type="email" />
-        <FormField label="Date of birth" name="dateOfBirth" type="date" />
+        <FormPageAnimation motionKey="info">
+          <FormField label="First Name" name="firstName" />
+          <FormField label="Last Name" name="lastName" />
+          <FormField label="Email" name="email" type="email" />
+          <FormField label="Date of birth" name="dateOfBirth" type="date" />
 
-        <FormInputChoice
-          type="radio"
-          label="Gender"
-          name="gender"
-          options={[
-            { label: 'Male', value: 'male' },
-            { label: 'Female', value: 'female' },
-          ]}
-        />
+          <FormInputChoice
+            type="radio"
+            label="Gender"
+            name="gender"
+            options={[
+              { label: 'Male', value: 'male' },
+              { label: 'Female', value: 'female' },
+            ]}
+          />
 
-        <FormInputChoice
-          type="radio"
-          label="Preferred language"
-          name="lang"
-          options={[
-            { label: 'Français', value: 'fr', checked: i18n.language === 'fr' },
-            { label: 'English', value: 'en', checked: i18n.language === 'en' },
-          ]}
-        />
+          <FormInputChoice
+            type="radio"
+            label="Preferred language"
+            name="lang"
+            options={[
+              {
+                label: 'Français',
+                value: 'fr',
+                checked: i18n.language === 'fr',
+              },
+              {
+                label: 'English',
+                value: 'en',
+                checked: i18n.language === 'en',
+              },
+            ]}
+          />
 
-        <FormField label="City" name="location" />
-        <FormField label="Phone number" name="phone" type="tel" />
+          <FormField label="City" name="location" />
+          <FormField label="Phone number" name="phone" type="tel" />
 
-        <FormInputChoice
-          type="checkbox"
-          label="Contact preferences"
-          name="contactPreference"
-          options={[
-            { label: 'Email', value: 'email' },
-            { label: 'Phone', value: 'phone' },
-            { label: 'Text', value: 'text' },
-          ]}
-        />
+          <FormInputChoice
+            type="checkbox"
+            label="Contact preferences"
+            name="contactPreference"
+            options={[
+              { label: 'Email', value: 'email' },
+              { label: 'Phone', value: 'phone' },
+              { label: 'Text', value: 'text' },
+            ]}
+          />
+        </FormPageAnimation>
 
+        {/* NAVIGATION BUTTONS */}
         <Divider mx={0} mt={0} mb={8} />
         <Flex
           sx={{

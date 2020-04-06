@@ -1,13 +1,14 @@
 import * as yup from 'yup'
-import { Flex, Divider } from 'theme-ui'
 
 import FormPageLayout from 'src/layouts/FormPageLayout/FormPageLayout'
 import { useFormService } from 'src/hooks/useFormService'
-import FormNavButton from 'src/components/FormNavButton/FormNavButton'
 import {
   Form,
   FormInputChoice,
 } from 'src/components/FormComponents/FormComponents'
+
+import FormPageAnimation from '../FormPageAnimation/FormPageAnimation'
+import FormButtonWrapper from '../FormButtonWrapper/FormButtonWrapper'
 
 const availabilities = [
   'seasonal',
@@ -44,28 +45,22 @@ const FormPageAvailability = () => {
       description="If you'd like to make yourself available for specific periods, you can choose them below."
     >
       <Form onSubmit={onSubmit} validationSchema={availabilitySchema}>
-        <FormInputChoice
-          type="checkbox"
-          label="Availabilities"
-          name="availability"
-          options={[
-            { label: 'Seasonal work periods', value: 'seasonal' },
-            { label: 'Between courses', value: 'betweenCourses' },
-            { label: '10 day and 3 day courses', value: 'courses' },
-            { label: 'Day 0', value: 'dayZero' },
-            // could be displayed only for relevant skill categories
-            { label: 'Remotely', value: 'remote' },
-          ]}
-        />
-
-        <Divider mx={0} mt={0} mb={8} />
-        <Flex
-          sx={{
-            justifyContent: 'flex-end',
-          }}
-        >
-          <FormNavButton />
-        </Flex>
+        <FormPageAnimation motionKey="availability">
+          <FormInputChoice
+            type="checkbox"
+            label="Availabilities"
+            name="availability"
+            options={[
+              { label: 'Seasonal work periods', value: 'seasonal' },
+              { label: 'Between courses', value: 'betweenCourses' },
+              { label: '10 day and 3 day courses', value: 'courses' },
+              { label: 'Day 0', value: 'dayZero' },
+              // could be displayed only for relevant skill categories
+              { label: 'Remotely', value: 'remote' },
+            ]}
+          />
+        </FormPageAnimation>
+        <FormButtonWrapper />
       </Form>
     </FormPageLayout>
   )
