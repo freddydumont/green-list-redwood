@@ -11,7 +11,7 @@ import loadDevTools from './devtools/load'
 
 import './i18n'
 
-import 'tailwindcss/dist/base.css'
+import 'tailwindcss/dist/base.min.css'
 
 loadDevTools(() => {
   ReactDOM.render(
