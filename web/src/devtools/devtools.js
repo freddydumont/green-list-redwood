@@ -23,24 +23,24 @@ function install() {
   LocalDevTools = LocalDevTools || (() => null)
 
   function FormValidationTool() {
-    const [validation, setValidation] = React.useState(
-      featureToggles.validation
+    const [disableFormValidation, setDisableFormValidation] = React.useState(
+      featureToggles.disableFormValidation
     )
 
     React.useEffect(() => {
-      if (validation) {
-        enable('validation')
+      if (disableFormValidation) {
+        enable('disableFormValidation')
       } else {
-        disable('validation')
+        disable('disableFormValidation')
       }
-    }, [validation])
+    }, [disableFormValidation])
 
     return (
       <Label>
         Skip form validation
         <Checkbox
-          defaultChecked={validation}
-          onChange={(e) => setValidation(e.target.checked)}
+          defaultChecked={disableFormValidation}
+          onChange={(e) => setDisableFormValidation(e.target.checked)}
         />
       </Label>
     )

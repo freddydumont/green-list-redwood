@@ -1,3 +1,5 @@
 window.APP_CONFIG = {
-  featureToggles: {},
+  featureToggles: {
+    disableFormValidation: false,
+  },
 }

@@ -32,10 +32,14 @@ export function Form({
   validationSchema,
   validationResolver,
 }) {
-  const methods = useForm({
+  let validation = {
     validationSchema,
     validationResolver,
-  })
+  }
+  if (window.APP_CONFIG.featureToggles.disableFormValidation) {
+    validation = undefined
+  }
+  const methods = useForm(validation)
 
   // value and context fields match so we can use both together to retrieve
   // the current form state
