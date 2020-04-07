@@ -21,6 +21,7 @@ import { motion } from 'framer-motion'
 
 import { InputMachine } from 'src/inputMachine'
 import { useFormService } from 'src/hooks/useFormService'
+import featureToggles from 'src/featureToggles'
 
 /**
  * [Smart form component](https://react-hook-form.com/advanced-usage#SmartFormComponent).
@@ -32,10 +33,14 @@ export function Form({
   validationSchema,
   validationResolver,
 }) {
-  const methods = useForm({
+  let validation = {
     validationSchema,
     validationResolver,
-  })
+  }
+  if (featureToggles?.disableFormValidation) {
+    validation = undefined
+  }
+  const methods = useForm(validation)
 
   // value and context fields match so we can use both together to retrieve
   // the current form state

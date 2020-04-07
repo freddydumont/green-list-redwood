@@ -7,20 +7,23 @@ import { ThemeProvider } from 'theme-ui'
 import Routes from 'src/Routes'
 
 import theme from './theme'
+import loadDevTools from './devtools/load'
 
 import './i18n'
 
 import 'tailwindcss/dist/base.css'
 
-ReactDOM.render(
-  <FatalErrorBoundary page={FatalErrorPage}>
-    <Suspense fallback={null}>
-      <ThemeProvider theme={theme}>
-        <RedwoodProvider>
-          <Routes />
-        </RedwoodProvider>
-      </ThemeProvider>
-    </Suspense>
-  </FatalErrorBoundary>,
-  document.getElementById('redwood-app')
-)
+loadDevTools(() => {
+  ReactDOM.render(
+    <FatalErrorBoundary page={FatalErrorPage}>
+      <Suspense fallback={null}>
+        <ThemeProvider theme={theme}>
+          <RedwoodProvider>
+            <Routes />
+          </RedwoodProvider>
+        </ThemeProvider>
+      </Suspense>
+    </FatalErrorBoundary>,
+    document.getElementById('redwood-app')
+  )
+})
