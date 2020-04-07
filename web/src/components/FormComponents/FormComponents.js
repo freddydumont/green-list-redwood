@@ -21,6 +21,7 @@ import { motion } from 'framer-motion'
 
 import { InputMachine } from 'src/inputMachine'
 import { useFormService } from 'src/hooks/useFormService'
+import featureToggles from 'src/featureToggles'
 
 /**
  * [Smart form component](https://react-hook-form.com/advanced-usage#SmartFormComponent).
@@ -36,7 +37,7 @@ export function Form({
     validationSchema,
     validationResolver,
   }
-  if (window.APP_CONFIG.featureToggles.disableFormValidation) {
+  if (featureToggles?.disableFormValidation) {
     validation = undefined
   }
   const methods = useForm(validation)
