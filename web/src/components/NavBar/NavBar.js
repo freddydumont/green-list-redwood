@@ -156,6 +156,7 @@ function MobileMenu({ isOpen, setOpen }) {
             transformOrigin: 'top right',
             display: [null, null, 'none'],
           }}
+          key="mobileMenu"
           variants={variants}
           initial="hidden"
           animate="visible"

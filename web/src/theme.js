@@ -237,6 +237,21 @@ const buttons = {
     ...tailwind.buttons.outline,
     ...baseButtonStyles,
   },
+  small: {
+    ...baseButtonStyles,
+    py: 2,
+    px: 4,
+    maxWidth: 'max-content',
+    fontSize: 'base',
+    bg: 'primary',
+    color: 'white',
+    boxShadow: 'default',
+
+    '&:hover': {
+      bg: 'primaryHover',
+      boxShadow: 'lg',
+    },
+  },
 }
 
 const baseInputStyles = {

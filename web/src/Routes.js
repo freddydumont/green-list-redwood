@@ -13,7 +13,10 @@ const Routes = () => {
   return (
     <Router pageLoadingDelay={300}>
       <Route path="/form" page={FormPage} name="form" />
-      <Route path="/style-guide" page={StyleGuidePage} name="styleGuide" />
+      {process.env.NODE_ENV === 'development' && (
+        // the style guide should only be accessible in development
+        <Route path="/style-guide" page={StyleGuidePage} name="styleGuide" />
+      )}
       <Route path="/" page={HomePage} name="home" />
       <Route notfound page={NotFoundPage} />
     </Router>

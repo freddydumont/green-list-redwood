@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { ThemeProvider, Box, Label, Checkbox } from 'theme-ui'
+import { ThemeProvider, Box, Label, Checkbox, Button } from 'theme-ui'
 
 import theme from '../theme'
 
@@ -36,12 +36,12 @@ function install() {
     }, [disableFormValidation])
 
     return (
-      <Label>
-        Skip form validation
+      <Label mb={3}>
         <Checkbox
           defaultChecked={disableFormValidation}
           onChange={(e) => setDisableFormValidation(e.target.checked)}
         />
+        Skip form validation
       </Label>
     )
   }
@@ -61,6 +61,7 @@ function install() {
           transition: 'all 0.3s',
           '.tools': {
             display: 'none',
+            py: 3,
           },
 
           '&:hover': {
@@ -77,6 +78,9 @@ function install() {
         <div className="tools">
           <LocalDevTools />
           <FormValidationTool />
+          <Button variant="small" as="a" href="/style-guide">
+            Go to style guide
+          </Button>
         </div>
       </Box>
     )
