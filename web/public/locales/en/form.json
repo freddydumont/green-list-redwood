@@ -6,5 +6,12 @@
     "courses": "10 day and 3 day courses",
     "dayZero": "Day 0",
     "remote": "Remotely"
+  },
+  "categories": {
+    "label": "Areas of interest",
+    "kitchen": "Kitchen",
+    "maintenance": "Construction and maintenance",
+    "technology": "Technology and design",
+    "accounting": "Accounting"
   }
 }
