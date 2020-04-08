@@ -1,6 +1,7 @@
-import { Spinner, Text, Flex } from 'theme-ui'
-
 import { FormInputChoice } from 'src/components/FormComponents/FormComponents'
+
+import CellLoading from '../CellLoading/CellLoading'
+import CellFailure from '../CellFailure/CellFailure'
 
 export const QUERY = gql`
   query {
@@ -11,23 +12,9 @@ export const QUERY = gql`
   }
 `
 
-export const Loading = () => (
-  <Flex variant="flex.center" sx={{ maxWidth: 'full' }}>
-    <Spinner />
-  </Flex>
-)
+export const Loading = () => <CellLoading />
 
-export const Failure = ({ error }) => (
-  <div>
-    <Text>
-      <Text as="span" color="danger">
-        {'Error: '}
-      </Text>
-      There was an error. Please refresh your browser.
-    </Text>
-    <Text variant="mono">{error.message}</Text>
-  </div>
-)
+export const Failure = ({ error }) => <CellFailure error={error} />
 
 export const Success = ({ availabilities }) => {
   return (
