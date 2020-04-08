@@ -142,6 +142,7 @@ export function FormInputChoice({ type, name, options, ...rest }) {
   }
 
   return (
+    /* i18next-extract-disable-next-line */
     <FormInputChoiceBox {...{ errors, name, label: t(`form:${name}.label`) }}>
       {options.map(({ label, value, checked }) => (
         <Label key={label}>
@@ -161,6 +162,7 @@ export function FormInputChoice({ type, name, options, ...rest }) {
               {...rest}
             />
           )}
+          {/* i18next-extract-disable-next-line */}
           {t(`form:${name}.${label}`)}
         </Label>
       ))}

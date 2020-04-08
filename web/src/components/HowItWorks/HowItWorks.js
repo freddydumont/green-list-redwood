@@ -51,22 +51,14 @@ const HowItWorks = () => {
           <ol sx={{ maxWidth: '3xl', mx: [null, null, null, 'auto'] }}>
             <ListItem
               count={1}
-              title="Sign up"
-              copy="Fill out a quick form to register your interests,
-                    skills and availability for the service."
               iconPath="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"
             />
             <ListItem
               count={2}
-              title="Confirm your availability"
-              copy="After submitting your form, you'll receive a confirmation to your email address and you'll be able to update your calendar availability."
               iconPath="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
             />
             <ListItem
               count={3}
-              title="We contact you"
-              copy="Depending on your preferences, we may contact you to meet the centre's immediate needs, or
-                    for a project matching your skills!"
               iconPath="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
             />
           </ol>
@@ -104,6 +96,7 @@ function ListItem({ count, iconPath }) {
             <span
               sx={{ fontWeight: 'bold', fontSize: ['2xl', null, null, '3xl'] }}
             >{`${count}. `}</span>
+            {/* i18next-extract-disable-next-line */}
             {t(`home:howitworks.${count}.title`)}
           </Text>
           <Text
@@ -115,6 +108,7 @@ function ListItem({ count, iconPath }) {
               color: 'textMuted',
             }}
           >
+            {/* i18next-extract-disable-next-line */}
             {t(`home:howitworks.${count}.copy`)}
           </Text>
         </Box>
