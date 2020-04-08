@@ -10,6 +10,8 @@ Common components like `NavBar` do not use namespacing. They end up in the `tran
 
 Use `yarn run extract` to extract new translations to the json files. By default, they will be initialized with the specified key.
 
+Keys using variables cannot be extracted automatically and need to be added to the relevant file manually. Ex: ``t(`home:howitworks.${count}.title`)``.
+
 So the workflow is:
 
 1. Wrap the english text in `t('my text')`
