@@ -1,6 +1,6 @@
 import { useMachine } from '@xstate/react'
 import { createContext } from 'react'
-import { Text, Button } from '@theme-ui/components'
+import { Text } from '@theme-ui/components'
 
 import FormPageInfo from 'src/components/FormPageInfo/FormPageInfo'
 import FormPageSkills from 'src/components/FormPageSkills/FormPageSkills'
@@ -13,7 +13,7 @@ import FormButtonWrapper from 'src/components/FormButtonWrapper/FormButtonWrappe
 export const ServiceContext = createContext({})
 
 const FormPage = () => {
-  const [current, send, service] = useMachine(formMachine, { immediate: true })
+  const [current, , service] = useMachine(formMachine, { immediate: true })
 
   return (
     <FormLayout>
@@ -21,27 +21,6 @@ const FormPage = () => {
         {
           // this is an object literal that acts as a switch for pages
           {
-            home: (
-              <FormPageLayout
-                title="Home"
-                description="this is a test description"
-              >
-                <>
-                  <Button
-                    variant="form"
-                    onClick={() => send({ type: 'START', lang: 'en' })}
-                  >
-                    Continue in English
-                  </Button>
-                  <Button
-                    variant="form"
-                    onClick={() => send({ type: 'START', lang: 'fr' })}
-                  >
-                    Continuer en français
-                  </Button>
-                </>
-              </FormPageLayout>
-            ),
             info: <FormPageInfo />,
             skills: <FormPageSkills />,
             availability: <FormPageAvailability />,
@@ -59,13 +38,6 @@ const FormPage = () => {
                 </Text>
                 <FormButtonWrapper />
               </FormPageLayout>
-            ),
-            /** Display a confirmation message, return home and wipe the data */
-            confirmation: (
-              <FormPageLayout
-                title="Confirmation"
-                description="this is a test description"
-              />
             ),
             default: null,
           }[current.value || 'default']
