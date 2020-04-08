@@ -18,6 +18,7 @@ import {
 import { useMachine } from '@xstate/react'
 import isEmpty from 'lodash/isEmpty'
 import { motion } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 
 import { InputMachine } from 'src/inputMachine'
 import { useFormService } from 'src/hooks/useFormService'
@@ -131,8 +132,9 @@ export function FormField({ name, label, as = 'input', ...rest }) {
 }
 
 /** Radio or checkbox input */
-export function FormInputChoice({ type, name, label, options, ...rest }) {
+export function FormInputChoice({ type, name, options, ...rest }) {
   const { register, errors } = useFormContext()
+  const { t } = useTranslation('form')
 
   const props = {
     name,
@@ -140,7 +142,7 @@ export function FormInputChoice({ type, name, label, options, ...rest }) {
   }
 
   return (
-    <FormInputChoiceBox {...{ errors, name, label }}>
+    <FormInputChoiceBox {...{ errors, name, label: t(`form:${name}.label`) }}>
       {options.map(({ label, value, checked }) => (
         <Label key={label}>
           {type === 'radio' && (
@@ -159,7 +161,7 @@ export function FormInputChoice({ type, name, label, options, ...rest }) {
               {...rest}
             />
           )}
-          {label}
+          {t(`form:${name}.${label}`)}
         </Label>
       ))}
     </FormInputChoiceBox>

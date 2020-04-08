@@ -422,6 +422,9 @@ const theme = {
       fontSize: ['lg', 'xl'],
       color: 'textMuted',
     },
+    mono: {
+      fontFamily: 'monospace',
+    },
   },
 }
 

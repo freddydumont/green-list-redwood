@@ -2,25 +2,15 @@ import * as yup from 'yup'
 
 import FormPageLayout from 'src/layouts/FormPageLayout/FormPageLayout'
 import { useFormService } from 'src/hooks/useFormService'
-import {
-  Form,
-  FormInputChoice,
-} from 'src/components/FormComponents/FormComponents'
+import { Form } from 'src/components/FormComponents/FormComponents'
+import AvailabilitiesCell from 'src/components/AvailabilitiesCell/AvailabilitiesCell'
 
 import FormPageAnimation from '../FormPageAnimation/FormPageAnimation'
 import FormButtonWrapper from '../FormButtonWrapper/FormButtonWrapper'
 
-const availabilities = [
-  'seasonal',
-  'betweenCourses',
-  'courses',
-  'dayZero',
-  'remote',
-]
-
 export const availabilitySchema = yup.object().shape({
   _hidden: yup.mixed().required(),
-  availability: yup.array(yup.mixed().oneOf(availabilities)).required(),
+  availability: yup.array(yup.number()).required(),
 })
 
 /**
@@ -46,19 +36,7 @@ const FormPageAvailability = () => {
     >
       <Form onSubmit={onSubmit} validationSchema={availabilitySchema}>
         <FormPageAnimation motionKey="availability">
-          <FormInputChoice
-            type="checkbox"
-            label="Availabilities"
-            name="availability"
-            options={[
-              { label: 'Seasonal work periods', value: 'seasonal' },
-              { label: 'Between courses', value: 'betweenCourses' },
-              { label: '10 day and 3 day courses', value: 'courses' },
-              { label: 'Day 0', value: 'dayZero' },
-              // could be displayed only for relevant skill categories
-              { label: 'Remotely', value: 'remote' },
-            ]}
-          />
+          <AvailabilitiesCell />
         </FormPageAnimation>
         <FormButtonWrapper />
       </Form>
