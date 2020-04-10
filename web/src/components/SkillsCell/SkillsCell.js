@@ -27,6 +27,22 @@ export const Loading = () => <CellLoading />
 
 export const Failure = ({ error }) => <CellFailure error={error} />
 
+/**
+ * Add an array of skill ids to the SkillDomain object.
+ * @param {Object} domain skillDomain object containing an array of skills,
+ * @return {number[]} an array of ids
+ */
+function getSkillsIds(domain) {
+  return domain.skills.map((skill) => skill.id)
+}
+
+export const afterQuery = ({ skillDomains }) => {
+  skillDomains.forEach((domain) => {
+    domain.skillsIds = getSkillsIds(domain)
+  })
+  return { skillDomains }
+}
+
 export const Success = ({ skillDomains }) => {
   console.log('Success -> skillDomains', skillDomains)
   return (
