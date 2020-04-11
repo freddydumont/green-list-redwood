@@ -10,7 +10,10 @@ import FormButtonWrapper from '../FormButtonWrapper/FormButtonWrapper'
 
 export const availabilitySchema = yup.object().shape({
   _hidden: yup.mixed().required(),
-  availability: yup.array(yup.number()).required(),
+  // ids temporarily hard coded
+  availability: yup
+    .array(yup.mixed().oneOf(['1', '2', '3', '4', '5']))
+    .required(),
 })
 
 /**
