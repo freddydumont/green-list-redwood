@@ -7,7 +7,7 @@
     ]
   },
   "scripts": {
-    "extract": "i18next --config i18next-parser.config.js"
+    "extract": "yarn workspace web run extract"
   },
   "devDependencies": {
     "@redwoodjs/core": "^0.4.0",

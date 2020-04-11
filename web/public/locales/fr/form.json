@@ -1,0 +1,17 @@
+{
+  "availability": {
+    "label": "Disponibilités",
+    "seasonal": "Périodes saisonnières de service",
+    "betweenCourses": "Entre cours",
+    "courses": "Cours de 10 jours et de 3 jours",
+    "dayZero": "Jour 0",
+    "remote": "À distance"
+  },
+  "categories": {
+    "label": "Intérêts",
+    "kitchen": "Cuisine",
+    "maintenance": "Construction et maintenance",
+    "technology": "Technologie et design",
+    "accounting": "Comptabilité"
+  }
+}

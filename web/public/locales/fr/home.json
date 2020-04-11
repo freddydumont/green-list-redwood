@@ -1,28 +1,28 @@
 {
   "hero": {
-    "Give service at ": "Don de service à ",
     "Dhamma Suttama": "Dhamma Suttama",
-    "copy": "hero.copy",
     "Get started": "hero.Get started",
+    "Give service at ": "Don de service à ",
     "Learn more": "hero.Learn more",
+    "copy": "hero.copy",
     "cushions_alt": "étagère de coussins de méditation"
   },
   "howitworks": {
-    "Dhamma Dana": "Dhamma Dana",
-    "How it works": "howitworks.How it works",
-    "copy": "howitworks.copy",
-    "Sign up now": "howitworks.Sign up now",
     "1": {
-      "title": "title 1",
-      "copy": "copy 1"
+      "copy": "copy 1",
+      "title": "title 1"
     },
     "2": {
-      "title": "title 2",
-      "copy": "copy 2"
+      "copy": "copy 2",
+      "title": "title 2"
     },
     "3": {
-      "title": "title 3",
-      "copy": "copy 3"
-    }
+      "copy": "copy 3",
+      "title": "title 3"
+    },
+    "Dhamma Dana": "Dhamma Dana",
+    "How it works": "howitworks.How it works",
+    "Sign up now": "howitworks.Sign up now",
+    "copy": "howitworks.copy"
   }
 }
