@@ -1,4 +1,5 @@
 import { Button } from 'theme-ui'
+import { useFormContext } from 'react-hook-form'
 
 import { useFormService } from 'src/hooks/useFormService'
 
@@ -8,6 +9,13 @@ import { useFormService } from 'src/hooks/useFormService'
  */
 const FormNavButton = () => {
   const [current, send] = useFormService()
+  const { formState } = useFormContext()
+
+  // read dirty state to activate formState updates
+  // see https://react-hook-form.com/api#formState
+  ;(function () {
+    return formState.dirty
+  })()
 
   const next = <Button variant="form" as="input" type="submit" value="Next" />
 
@@ -23,8 +31,27 @@ const FormNavButton = () => {
     </Button>
   )
 
+  const cancel = (
+    <Button
+      type="button"
+      variant="outline"
+      mr={2}
+      onClick={() => {
+        send('PREVIOUS', { formState })
+      }}
+    >
+      Cancel
+    </Button>
+  )
+
   switch (current.value) {
     case 'info':
+      return (
+        <>
+          {cancel}
+          {next}
+        </>
+      )
     case 'skills':
     case 'availability':
       return (

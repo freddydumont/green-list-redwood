@@ -1,17 +1,18 @@
 {
   "availability": {
-    "label": "Availabilities",
-    "seasonal": "Seasonal work periods",
     "betweenCourses": "Between courses",
     "courses": "10 day and 3 day courses",
     "dayZero": "Day 0",
-    "remote": "Remotely"
+    "label": "Availabilities",
+    "remote": "Remotely",
+    "seasonal": "Seasonal work periods"
   },
   "categories": {
-    "label": "Areas of interest",
+    "accounting": "Accounting",
     "kitchen": "Kitchen",
+    "label": "Areas of interest",
     "maintenance": "Construction and maintenance",
-    "technology": "Technology and design",
-    "accounting": "Accounting"
-  }
+    "technology": "Technology and design"
+  },
+  "confirm_exit": "You will lose the data you entered. Are you sure you want to leave?"
 }
