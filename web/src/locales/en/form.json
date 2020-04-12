@@ -1,4 +1,20 @@
 {
+  "gender": {
+    "label": "Gender",
+    "Male": "Male",
+    "Female": "Female"
+  },
+  "lang": {
+    "label": "Language Preference",
+    "Français": "Français",
+    "English": "English"
+  },
+  "contactPreference": {
+    "label": "Contact Preference",
+    "Email": "Email",
+    "Phone": "Phone",
+    "Text": "Text"
+  },
   "availability": {
     "betweenCourses": "Between courses",
     "courses": "10 day and 3 day courses",
