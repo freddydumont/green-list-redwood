@@ -114,6 +114,7 @@ export function FormField({ name, label, as = 'input', ...rest }) {
     variant: getVariant(state.value),
     ref: register,
     name,
+    id: name,
     ...rest,
   }
 
@@ -138,6 +139,7 @@ export function FormInputChoice({ type, name, options, ...rest }) {
 
   const props = {
     name,
+    id: name,
     ref: register,
   }
 
@@ -191,7 +193,7 @@ export function FormInputChoiceBox({ name, label, children, animate = false }) {
       animate="show"
     >
       <Box variant={hasError ? 'box.formError' : 'box.form'}>
-        {label && <Label>{label}</Label>}
+        {label && <Label htmlFor={name}>{label}</Label>}
         <Box
           sx={{
             boxShadow: hasError ? 'error' : 'none',

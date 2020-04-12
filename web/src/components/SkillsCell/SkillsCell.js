@@ -108,6 +108,7 @@ const ConditionalCheckboxes = ({ data }) => {
               label={t(`form:categories.${category.name}`)}
               control={control}
               name="skills"
+              id="skills"
               animate
             >
               {category.skills.map((skill) => (

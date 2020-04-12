@@ -5,6 +5,7 @@ import { ThemeProvider, Box, Label, Checkbox, Button } from 'theme-ui'
 import theme from '../theme'
 
 import featureToggles, { enable, disable } from './featureToggles'
+import { fillFormPageInfo } from './automation'
 
 function install() {
   window.devToolsEnabled = true
@@ -78,6 +79,9 @@ function install() {
         <div className="tools">
           <LocalDevTools />
           <FormValidationTool />
+          <Button mb={3} variant="small" onClick={fillFormPageInfo}>
+            Fill info
+          </Button>
           <Button variant="small" as="a" href="/style-guide">
             Go to style guide
           </Button>
