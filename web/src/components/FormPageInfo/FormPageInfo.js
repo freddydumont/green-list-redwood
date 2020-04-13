@@ -18,8 +18,7 @@ export const userSchema = yup.object().shape({
   firstName: yup.string().required(),
   lastName: yup.string().required(),
   email: yup.string().email().required(),
-  // TODO: add validation pattern to string
-  dateOfBirth: yup.string().required(),
+  dateOfBirth: yup.date().required(),
   gender: yup.mixed().oneOf(['male', 'female']).required(),
   lang: yup.mixed().oneOf(['fr', 'en']).required(),
   location: yup.string().required(),
@@ -38,7 +37,13 @@ const FormPageInfo = () => {
     send({
       type: 'NEXT',
       data: {
-        info: data,
+        info: {
+          ...data,
+          // convert date to format accepted by <input type="date" />
+          // this allows prefilling date field when going back in the form,
+          // while also allowing date validation
+          dateOfBirth: data.dateOfBirth.toISOString().substr(0, 10),
+        },
       },
     })
   }
