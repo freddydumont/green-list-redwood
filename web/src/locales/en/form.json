@@ -1,20 +1,4 @@
 {
-  "gender": {
-    "label": "Gender",
-    "Male": "Male",
-    "Female": "Female"
-  },
-  "lang": {
-    "label": "Language Preference",
-    "Français": "Français",
-    "English": "English"
-  },
-  "contactPreference": {
-    "label": "Contact Preference",
-    "Email": "Email",
-    "Phone": "Phone",
-    "Text": "Text"
-  },
   "availability": {
     "betweenCourses": "Between courses",
     "courses": "10 day and 3 day courses",
@@ -30,5 +14,39 @@
     "maintenance": "Construction and maintenance",
     "technology": "Technology and design"
   },
-  "confirm_exit": "You will lose the data you entered. Are you sure you want to leave?"
+  "confirm_exit": "You will lose the data you entered. Are you sure you want to leave?",
+  "contactPreference": {
+    "Email": "Email",
+    "Phone": "Phone",
+    "Text": "Text",
+    "label": "Contact Preference"
+  },
+  "gender": {
+    "Female": "Female",
+    "Male": "Male",
+    "label": "Gender"
+  },
+  "lang": {
+    "English": "English",
+    "Français": "Français",
+    "label": "Language Preference"
+  },
+  "validation": {
+    "availability": "Please select at least 1 availability option.",
+    "contactPreference": "Please select a contact preference.",
+    "dateofbirth": {
+      "required": "Please enter your date of birth.",
+      "valid": "The date of birth is not valid."
+    },
+    "email": {
+      "required": "The email is required.",
+      "valid": "Please enter a valid email address."
+    },
+    "firstname": "Please enter your first name.",
+    "gender": "Please select a gender.",
+    "lang": "Please select a preferred contact language.",
+    "lastname": "Please enter your last name.",
+    "location": "Please enter a location.",
+    "phone": "Please enter a phone number."
+  }
 }

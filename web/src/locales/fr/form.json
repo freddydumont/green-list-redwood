@@ -14,5 +14,23 @@
     "maintenance": "Construction et maintenance",
     "technology": "Technologie et design"
   },
-  "confirm_exit": "Si vous quittez maintenant, les données entrées seront perdues."
+  "confirm_exit": "Si vous quittez maintenant, les données entrées seront perdues.",
+  "validation": {
+    "availability": "availability",
+    "contactPreference": "contactPreference",
+    "dateofbirth": {
+      "required": "required",
+      "valid": "valid"
+    },
+    "email": {
+      "required": "required",
+      "valid": "valid"
+    },
+    "firstname": "firstname",
+    "gender": "gender",
+    "lang": "lang",
+    "lastname": "lastname",
+    "location": "location",
+    "phone": "phone"
+  }
 }

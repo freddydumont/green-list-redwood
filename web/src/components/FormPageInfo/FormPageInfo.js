@@ -1,6 +1,7 @@
 import * as yup from 'yup'
 import { Flex, Divider } from 'theme-ui'
 import { useTranslation } from 'react-i18next'
+import i18next from 'i18next'
 
 import FormPageLayout from 'src/layouts/FormPageLayout/FormPageLayout'
 import { useFormService } from 'src/hooks/useFormService'
@@ -15,17 +16,36 @@ import FormPageAnimation from '../FormPageAnimation/FormPageAnimation'
 
 export const userSchema = yup.object().shape({
   _hidden: yup.mixed().required(),
-  firstName: yup.string().required(),
-  lastName: yup.string().required(),
-  email: yup.string().email().required(),
-  dateOfBirth: yup.date().required(),
-  gender: yup.mixed().oneOf(['male', 'female']).required(),
-  lang: yup.mixed().oneOf(['fr', 'en']).required(),
-  location: yup.string().required(),
-  phone: yup.string().required(),
+  firstName: yup.string().required(i18next.t('form:validation.firstname')),
+  lastName: yup.string().required(i18next.t('form:validation.lastname')),
+  email: yup
+    .string()
+    .email(i18next.t('form:validation.email.valid'))
+    .required(i18next.t('form:validation.email.required')),
+  dateOfBirth: yup
+    .date()
+    .typeError(i18next.t('form:validation.dateofbirth.valid'))
+    .required(i18next.t('form:validation.dateofbirth.required')),
+  gender: yup
+    .mixed()
+    .oneOf(['male', 'female'], i18next.t('form:validation.gender'))
+    .required(i18next.t('form:validation.gender')),
+  lang: yup
+    .mixed()
+    .oneOf(['fr', 'en'], i18next.t('form:validation.lang'))
+    .required(i18next.t('form:validation.lang')),
+  location: yup.string().required(i18next.t('form:validation.location')),
+  phone: yup.string().required(i18next.t('form:validation.phone')),
   contactPreference: yup
-    .array(yup.mixed().oneOf(['email', 'phone', 'text']))
-    .required(),
+    .array(
+      yup
+        .mixed()
+        .oneOf(
+          ['email', 'phone', 'text'],
+          i18next.t('form:validation.contactPreference')
+        )
+    )
+    .required(i18next.t('form:validation.contactPreference')),
 })
 
 /** Collect identification and contact information */
