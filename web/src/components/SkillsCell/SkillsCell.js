@@ -1,15 +1,8 @@
-import { Label, Checkbox } from 'theme-ui'
-import { useFormContext, Controller } from 'react-hook-form'
-import { motion } from 'framer-motion'
-import { useTranslation } from 'react-i18next'
+import { useFormContext } from 'react-hook-form'
 
 import CellLoading from '../CellLoading/CellLoading'
 import CellFailure from '../CellFailure/CellFailure'
-import {
-  FormInputChoice,
-  FormInputChoiceBox,
-  FormField,
-} from '../FormComponents/FormComponents'
+import { FormInputChoice, FormField } from '../FormComponents/FormComponents'
 
 export const QUERY = gql`
   query {
@@ -77,12 +70,11 @@ export const Success = ({ skillDomains }) => {
 
 /**
  * Skill selection checkboxes that appear when a category is selected
- * A `react-hook-form` Controller is used to register the checkbox group
- * as the component mounts. The checkboxes themselves are registered directly.
+ * @param {Object} props
+ * @param {Object} props.data skillDomains object
  */
 const ConditionalCheckboxes = ({ data }) => {
-  const { watch, control, register } = useFormContext()
-  const { t } = useTranslation()
+  const { watch } = useFormContext()
 
   /** given an id, returns the category object */
   const getCategoryById = (id) => {
@@ -102,30 +94,15 @@ const ConditionalCheckboxes = ({ data }) => {
         {selectedCategories.map((categoryId) => {
           const category = getCategoryById(categoryId)
           return (
-            <Controller
-              as={FormInputChoiceBox}
+            <FormInputChoice
               key={category.name}
-              label={t(`form:categories.${category.name}`)}
-              control={control}
-              name="skills"
-              id="skills"
-              animate
-            >
-              {category.skills.map((skill) => (
-                <motion.div
-                  variants={{
-                    hidden: { opacity: 0 },
-                    show: { opacity: 1 },
-                  }}
-                  key={skill.name}
-                >
-                  <Label>
-                    <Checkbox name="skills" value={skill.id} ref={register} />
-                    {t(`form:skills.${skill.name}`)}
-                  </Label>
-                </motion.div>
-              ))}
-            </Controller>
+              type="checkbox"
+              name={categoryId}
+              options={category.skills.map((skill) => ({
+                label: skill.name,
+                value: skill.id,
+              }))}
+            />
           )
         })}
       </>
