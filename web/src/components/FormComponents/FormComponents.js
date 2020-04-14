@@ -139,7 +139,6 @@ export function FormInputChoice({ type, name, options, ...rest }) {
 
   const props = {
     name,
-    id: name,
     ref: register,
   }
 
@@ -151,6 +150,7 @@ export function FormInputChoice({ type, name, options, ...rest }) {
           {type === 'radio' && (
             <Radio
               value={value}
+              id={`${name}.${value}`}
               defaultChecked={checked}
               {...props}
               {...rest}
@@ -159,6 +159,7 @@ export function FormInputChoice({ type, name, options, ...rest }) {
           {type === 'checkbox' && (
             <Checkbox
               value={value}
+              id={`${name}.${value}`}
               defaultChecked={checked}
               {...props}
               {...rest}
