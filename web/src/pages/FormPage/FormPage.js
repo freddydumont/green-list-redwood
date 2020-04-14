@@ -9,6 +9,7 @@ import { formMachine } from 'src/formMachine'
 import FormPageLayout from 'src/layouts/FormPageLayout/FormPageLayout'
 import FormLayout from 'src/layouts/FormLayout/FormLayout'
 import FormButtonWrapper from 'src/components/FormButtonWrapper/FormButtonWrapper'
+import { Form } from 'src/components/FormComponents/FormComponents'
 
 export const ServiceContext = createContext({})
 
@@ -33,10 +34,12 @@ const FormPage = () => {
                 title="Validation"
                 description="this is a test description"
               >
-                <Text sx={{ fontFamily: 'mono' }}>
-                  <pre>{JSON.stringify(current.context, null, 2)}</pre>
-                </Text>
-                <FormButtonWrapper />
+                <Form>
+                  <Text sx={{ fontFamily: 'mono' }}>
+                    <pre>{JSON.stringify(current.context, null, 2)}</pre>
+                  </Text>
+                  <FormButtonWrapper />
+                </Form>
               </FormPageLayout>
             ),
             default: null,
