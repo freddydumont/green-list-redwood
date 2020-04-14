@@ -11,8 +11,8 @@ import {
   FormField,
   FormInputChoice,
 } from 'src/components/FormComponents/FormComponents'
-
-import FormPageAnimation from '../FormPageAnimation/FormPageAnimation'
+import FormPageAnimation from 'src/components/FormPageAnimation/FormPageAnimation'
+import featureToggles from 'src/featureToggles'
 
 export const userSchema = yup.object().shape({
   _hidden: yup.mixed().required(),
@@ -57,13 +57,17 @@ const FormPageInfo = () => {
     send({
       type: 'NEXT',
       data: {
-        info: {
-          ...data,
-          // convert date to format accepted by <input type="date" />
-          // this allows prefilling date field when going back in the form,
-          // while also allowing date validation
-          dateOfBirth: data.dateOfBirth.toISOString().substr(0, 10),
-        },
+        // if validation is disabled, date conversion must also be disabled
+        // because `dateOfBirth` will be an empty string rather than a Date
+        info: featureToggles?.disableFormValidation
+          ? data
+          : {
+              ...data,
+              // convert date to format accepted by <input type="date" />
+              // this allows prefilling date field when going back in the form,
+              // while also allowing date validation
+              dateOfBirth: data.dateOfBirth.toISOString().substr(0, 10),
+            },
       },
     })
   }
