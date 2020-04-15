@@ -23,30 +23,6 @@ function install() {
   }
   LocalDevTools = LocalDevTools || (() => null)
 
-  function FormValidationTool() {
-    const [disableFormValidation, setDisableFormValidation] = React.useState(
-      featureToggles.disableFormValidation
-    )
-
-    React.useEffect(() => {
-      if (disableFormValidation) {
-        enable('disableFormValidation')
-      } else {
-        disable('disableFormValidation')
-      }
-    }, [disableFormValidation])
-
-    return (
-      <Label mb={3}>
-        <Checkbox
-          defaultChecked={disableFormValidation}
-          onChange={(e) => setDisableFormValidation(e.target.checked)}
-        />
-        Skip form validation
-      </Label>
-    )
-  }
-
   function DevTools() {
     return (
       <Box
@@ -78,7 +54,10 @@ function install() {
         <div>🛠</div>
         <div className="tools">
           <LocalDevTools />
-          <FormValidationTool />
+          <FeatureToggle
+            label="Skip form validation"
+            name="disableFormValidation"
+          />
           <Button mb={3} variant="small" onClick={fillFormPageInfo}>
             Fill info
           </Button>
@@ -102,3 +81,25 @@ function install() {
 }
 
 export { install }
+
+function FeatureToggle({ name, label }) {
+  const [isEnabled, setEnabled] = React.useState(featureToggles[name])
+
+  React.useEffect(() => {
+    if (isEnabled) {
+      enable(name)
+    } else {
+      disable(name)
+    }
+  }, [isEnabled, name])
+
+  return (
+    <Label mb={3}>
+      <Checkbox
+        defaultChecked={isEnabled}
+        onChange={(e) => setEnabled(e.target.checked)}
+      />
+      {label}
+    </Label>
+  )
+}
