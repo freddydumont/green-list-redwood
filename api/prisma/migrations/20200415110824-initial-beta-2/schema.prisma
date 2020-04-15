@@ -5,7 +5,7 @@ datasource DS {
 
 generator photonjs {
   provider      = "prisma-client-js"
-  binaryTargets = env("BINARY_TARGET")
+  binaryTargets = ["native", "rhel-openssl-1.0.x"]
 }
 
 // Define your own datamodels here and run `yarn redwood db save` to create
@@ -19,15 +19,16 @@ model User {
   lastName                    String
   dateOfBirth                 DateTime
   gender                      Gender
-  lang                        Language
+  lang                        Language       @relation(fields: [langId], references: [id])
+  langId                      Int            @map("lang")
   location                    String
   phone                       String?
   email                       String         @unique
   contactPreference           ContactBy
-  skillDomains                SkillDomain[]
-  skills                      Skill[]
+  skillDomains                SkillDomain[]  @relation(references: [id])
+  skills                      Skill[]        @relation(references: [id])
   otherSkills                 String?
-  availabilities              Availability[]
+  availabilities              Availability[] @relation(references: [id])
   committeeRecruitmentConsent Boolean        @default(false)
 }
 
@@ -35,26 +36,27 @@ model SkillDomain {
   id     Int     @id @default(autoincrement())
   name   String  @unique
   skills Skill[]
-  users  User[]
+  users  User[]  @relation(references: [id])
 }
 
 model Skill {
-  id     Int         @id @default(autoincrement())
-  name   String      @unique
-  domain SkillDomain
-  users  User[]
+  id       Int         @id @default(autoincrement())
+  name     String      @unique
+  domain   SkillDomain @relation(fields: [domainId], references: [id])
+  domainId Int         @map("domain")
+  users    User[]      @relation(references: [id])
 }
 
 model Availability {
   id    Int    @id @default(autoincrement())
   name  String @unique
-  users User[]
+  users User[] @relation(references: [id])
 }
 
 model Language {
   id    Int    @id @default(autoincrement())
   name  String @unique
-  users User[]
+  users User[] @relation(references: [id])
 }
 
 enum Gender {
