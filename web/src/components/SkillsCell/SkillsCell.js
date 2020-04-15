@@ -97,7 +97,7 @@ const ConditionalCheckboxes = ({ data }) => {
             <FormInputChoice
               key={category.name}
               type="checkbox"
-              name={categoryId}
+              name={`skills.${category.name}`}
               options={category.skills.map((skill) => ({
                 label: skill.name,
                 value: skill.id,
