@@ -29,9 +29,13 @@ export const schema = gql`
     availability: [ID!]!
   }
 
+  input CreateUserInput {
+    info: UserInfoInput!
+    skills: UserSkillsInput!
+    availability: UserAvailabilityInput!
+  }
+
   type Mutation {
-    validateUserInfo(input: UserInfoInput!): Boolean!
-    validateUserSkills(input: UserSkillsInput!): Boolean!
-    validateUserAvailability(input: UserAvailabilityInput!): Boolean!
+    createUser(input: CreateUserInput!): Boolean!
   }
 `
