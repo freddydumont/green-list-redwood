@@ -8,7 +8,7 @@ export const schema = gql`
     lang: Lang!
     location: String!
     phone: String
-    contactPreference: ContactPreference!
+    contactPreference: [ContactPreference!]!
   }
 
   input UserSkills {

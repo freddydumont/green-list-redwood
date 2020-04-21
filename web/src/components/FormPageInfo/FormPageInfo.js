@@ -28,11 +28,11 @@ export const userSchema = yup.object().shape({
     .required(i18next.t('form:validation.dateofbirth.required')),
   gender: yup
     .mixed()
-    .oneOf(['male', 'female'], i18next.t('form:validation.gender'))
+    .oneOf(['MALE', 'FEMALE'], i18next.t('form:validation.gender'))
     .required(i18next.t('form:validation.gender')),
   lang: yup
     .mixed()
-    .oneOf(['fr', 'en'], i18next.t('form:validation.lang'))
+    .oneOf(['FR', 'EN'], i18next.t('form:validation.lang'))
     .required(i18next.t('form:validation.lang')),
   location: yup.string().required(i18next.t('form:validation.location')),
   phone: yup.string().required(i18next.t('form:validation.phone')),
@@ -41,7 +41,7 @@ export const userSchema = yup.object().shape({
       yup
         .mixed()
         .oneOf(
-          ['email', 'phone', 'text'],
+          ['EMAIL', 'PHONE', 'TEXT'],
           i18next.t('form:validation.contactPreference')
         )
     )
@@ -89,8 +89,8 @@ const FormPageInfo = () => {
             label="Gender"
             name="gender"
             options={[
-              { label: 'Male', value: 'male' },
-              { label: 'Female', value: 'female' },
+              { label: 'Male', value: 'MALE' },
+              { label: 'Female', value: 'FEMALE' },
             ]}
           />
 
@@ -101,12 +101,12 @@ const FormPageInfo = () => {
             options={[
               {
                 label: 'Français',
-                value: 'fr',
+                value: 'FR',
                 checked: i18n.language === 'fr',
               },
               {
                 label: 'English',
-                value: 'en',
+                value: 'EN',
                 checked: i18n.language === 'en',
               },
             ]}
@@ -120,9 +120,9 @@ const FormPageInfo = () => {
             label="Contact preferences"
             name="contactPreference"
             options={[
-              { label: 'Email', value: 'email' },
-              { label: 'Phone', value: 'phone' },
-              { label: 'Text', value: 'text' },
+              { label: 'Email', value: 'EMAIL' },
+              { label: 'Phone', value: 'PHONE' },
+              { label: 'Text', value: 'TEXT' },
             ]}
           />
         </FormPageAnimation>
