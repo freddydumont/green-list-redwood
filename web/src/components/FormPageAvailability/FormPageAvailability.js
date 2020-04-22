@@ -1,5 +1,4 @@
 import * as yup from 'yup'
-import { i18next } from 'intl'
 
 import FormPageLayout from 'src/layouts/FormPageLayout/FormPageLayout'
 import { useFormService } from 'src/hooks/useFormService'
@@ -14,7 +13,7 @@ export const availabilitySchema = yup.object().shape({
   // ids temporarily hard coded
   availability: yup
     .array(yup.mixed().oneOf(['1', '2', '3', '4', '5']))
-    .required(i18next.t('form:validation.availability')),
+    .required('form:validation.availability'),
 })
 
 /**

@@ -86,6 +86,7 @@ export function Form({
  * Tracks its state explicitely via xstate to know when valid state is reached.
  */
 export function FormField({ name, label, as = 'input', ...rest }) {
+  const { t } = useTranslation('form')
   const [state, send] = useMachine(InputMachine)
   const { register, errors } = useFormContext()
 
@@ -126,7 +127,15 @@ export function FormField({ name, label, as = 'input', ...rest }) {
       <ErrorMessage
         as={<Text color="textDanger" mb={8} />}
         name={name}
-        errors={errors}
+        errors={{
+          ...errors,
+          [name]: {
+            ...errors?.[name],
+            // feed the intl key from validation to `t`
+            // i18next-extract-disable-next-line
+            message: t(errors?.[name]?.message),
+          },
+        }}
       />
     </>
   )
@@ -182,6 +191,7 @@ export function FormInputChoice({ type, name, options, ...rest }) {
 
 /** Presentational layer for FormInputChoice */
 export function FormInputChoiceBox({ name, label, children }) {
+  const { t } = useTranslation('form')
   const { errors } = useFormContext()
   const hasError = errors?.[name]
 
@@ -215,7 +225,14 @@ export function FormInputChoiceBox({ name, label, children }) {
         <ErrorMessage
           as={<Text color="textDanger" mb={8} />}
           name={name}
-          errors={errors}
+          errors={{
+            ...errors,
+            [name]: {
+              ...errors?.[name],
+              // i18next-extract-disable-next-line
+              message: t(errors?.[name]?.message),
+            },
+          }}
         />
       </Box>
     </motion.div>

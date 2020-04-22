@@ -1,7 +1,6 @@
 import * as yup from 'yup'
 import { Flex, Divider } from 'theme-ui'
 import { useTranslation } from 'react-i18next'
-import { i18next } from 'intl'
 
 import FormPageLayout from 'src/layouts/FormPageLayout/FormPageLayout'
 import { useFormService } from 'src/hooks/useFormService'
@@ -16,36 +15,33 @@ import featureToggles from 'src/featureToggles'
 
 export const userSchema = yup.object().shape({
   _hidden: yup.mixed().required(),
-  firstName: yup.string().required(i18next.t('form:validation.firstname')),
-  lastName: yup.string().required(i18next.t('form:validation.lastname')),
+  firstName: yup.string().required('form:validation.firstname'),
+  lastName: yup.string().required('form:validation.lastname'),
   email: yup
     .string()
-    .email(i18next.t('form:validation.email.valid'))
-    .required(i18next.t('form:validation.email.required')),
+    .email('form:validation.email.valid')
+    .required('form:validation.email.required'),
   dateOfBirth: yup
     .date()
-    .typeError(i18next.t('form:validation.dateofbirth.valid'))
-    .required(i18next.t('form:validation.dateofbirth.required')),
+    .typeError('form:validation.dateofbirth.valid')
+    .required('form:validation.dateofbirth.required'),
   gender: yup
     .mixed()
-    .oneOf(['MALE', 'FEMALE'], i18next.t('form:validation.gender'))
-    .required(i18next.t('form:validation.gender')),
+    .oneOf(['MALE', 'FEMALE'], 'form:validation.gender')
+    .required('form:validation.gender'),
   lang: yup
     .mixed()
-    .oneOf(['FR', 'EN'], i18next.t('form:validation.lang'))
-    .required(i18next.t('form:validation.lang')),
-  location: yup.string().required(i18next.t('form:validation.location')),
-  phone: yup.string().required(i18next.t('form:validation.phone')),
+    .oneOf(['FR', 'EN'], 'form:validation.lang')
+    .required('form:validation.lang'),
+  location: yup.string().required('form:validation.location'),
+  phone: yup.string().required('form:validation.phone'),
   contactPreference: yup
     .array(
       yup
         .mixed()
-        .oneOf(
-          ['EMAIL', 'PHONE', 'TEXT'],
-          i18next.t('form:validation.contactPreference')
-        )
+        .oneOf(['EMAIL', 'PHONE', 'TEXT'], 'form:validation.contactPreference')
     )
-    .required(i18next.t('form:validation.contactPreference')),
+    .required('form:validation.contactPreference'),
 })
 
 /** Collect identification and contact information */
