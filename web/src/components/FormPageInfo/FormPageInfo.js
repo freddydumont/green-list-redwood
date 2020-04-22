@@ -1,7 +1,7 @@
 import * as yup from 'yup'
 import { Flex, Divider } from 'theme-ui'
 import { useTranslation } from 'react-i18next'
-import i18next from 'i18next'
+import { i18next } from 'intl'
 
 import FormPageLayout from 'src/layouts/FormPageLayout/FormPageLayout'
 import { useFormService } from 'src/hooks/useFormService'

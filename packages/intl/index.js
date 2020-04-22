@@ -1,4 +1,4 @@
-import i18n from 'i18next'
+import i18next from 'i18next'
 import LanguageDetector from 'i18next-browser-languagedetector'
 
 // for now, all translations are loaded with the app
@@ -11,7 +11,7 @@ import fr from './src/locales/fr/index'
  * @param {*} react `initReactI18next` instance
  */
 function initI18n(react) {
-  i18n
+  i18next
     .use(LanguageDetector)
     // connect with React
     .use(react)
@@ -33,4 +33,4 @@ function initI18n(react) {
     })
 }
 
-export { initI18n }
+export { initI18n, i18next }
