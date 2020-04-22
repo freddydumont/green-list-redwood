@@ -6,7 +6,7 @@ module.exports = {
       {
         keyAsDefaultValue: true,
         locales: ['en', 'fr'],
-        outputPath: 'src/locales/{{locale}}/{{ns}}.json',
+        outputPath: '../packages/intl/src/locales/{{locale}}/{{ns}}.json',
       },
     ],
   ],

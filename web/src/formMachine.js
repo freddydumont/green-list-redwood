@@ -1,7 +1,7 @@
 import { Machine, assign } from 'xstate'
 import { navigate, routes } from '@redwoodjs/router'
 import isEmpty from 'lodash/isEmpty'
-import i18next from 'i18next'
+import { i18next } from 'intl'
 
 const formMachine = Machine(
   {

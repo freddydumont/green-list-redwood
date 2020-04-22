@@ -1,0 +1,9 @@
+{
+  "private": true,
+  "name": "intl",
+  "version": "1.0.0",
+  "dependencies": {
+    "i18next": "^19.4.3",
+    "i18next-browser-languagedetector": "^4.1.1"
+  }
+}

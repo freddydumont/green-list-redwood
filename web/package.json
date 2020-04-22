@@ -17,8 +17,6 @@
     "@theme-ui/style-guide": "^0.3.0",
     "@xstate/react": "^0.8.1",
     "framer-motion": "^1.10.3",
-    "i18next": "^19.4.2",
-    "i18next-browser-languagedetector": "^4.0.2",
     "lodash": "^4.17.15",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
@@ -28,8 +26,7 @@
     "redwood-nprogress": "^1.0.1",
     "tailwindcss": "^1.2.0",
     "theme-ui": "^0.3.1",
-    "xstate": "^4.8.0",
-    "yup": "^0.28.3"
+    "xstate": "^4.8.0"
   },
   "devDependencies": {
     "babel-plugin-i18next-extract": "^0.7.2"
