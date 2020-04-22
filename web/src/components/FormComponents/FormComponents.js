@@ -139,7 +139,6 @@ export function FormInputChoice({ type, name, options, ...rest }) {
 
   const props = {
     name,
-    id: name,
     ref: register,
   }
 
@@ -147,10 +146,18 @@ export function FormInputChoice({ type, name, options, ...rest }) {
     /* i18next-extract-disable-next-line */
     <FormInputChoiceBox {...{ errors, name, label: t(`form:${name}.label`) }}>
       {options.map(({ label, value, checked }) => (
-        <Label key={label}>
+        <Label
+          as={motion.label}
+          variants={{
+            hidden: { opacity: 0 },
+            show: { opacity: 1 },
+          }}
+          key={label}
+        >
           {type === 'radio' && (
             <Radio
               value={value}
+              id={`${name}.${value}`}
               defaultChecked={checked}
               {...props}
               {...rest}
@@ -159,6 +166,7 @@ export function FormInputChoice({ type, name, options, ...rest }) {
           {type === 'checkbox' && (
             <Checkbox
               value={value}
+              id={`${name}.${value}`}
               defaultChecked={checked}
               {...props}
               {...rest}
@@ -173,7 +181,7 @@ export function FormInputChoice({ type, name, options, ...rest }) {
 }
 
 /** Presentational layer for FormInputChoice */
-export function FormInputChoiceBox({ name, label, children, animate = false }) {
+export function FormInputChoiceBox({ name, label, children }) {
   const { errors } = useFormContext()
   const hasError = errors?.[name]
 
@@ -184,12 +192,12 @@ export function FormInputChoiceBox({ name, label, children, animate = false }) {
         show: {
           opacity: 1,
           transition: {
-            delayChildren: 0.05,
-            staggerChildren: 0.01,
+            delayChildren: 0.075,
+            staggerChildren: 0.025,
           },
         },
       }}
-      initial={animate ? 'hidden' : false}
+      initial="hidden"
       animate="show"
     >
       <Box variant={hasError ? 'box.formError' : 'box.form'}>

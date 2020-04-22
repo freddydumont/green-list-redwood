@@ -1,6 +1,6 @@
 datasource DS {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
+  url = "***"
 }
 
 generator photonjs {
@@ -17,7 +17,6 @@ model User {
   firstName String
   lastName  String
   email     String   @unique
-  role      Role     @default(USER)
   profile   Profile?
 }
 
@@ -76,9 +75,4 @@ enum ContactBy {
   email
   phone
   text
-}
-
-enum Role {
-  USER
-  ADMIN
 }
