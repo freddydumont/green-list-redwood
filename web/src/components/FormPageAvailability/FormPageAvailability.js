@@ -1,4 +1,4 @@
-import * as yup from 'yup'
+import { availabilitySchema } from 'form-validation'
 
 import FormPageLayout from 'src/layouts/FormPageLayout/FormPageLayout'
 import { useFormService } from 'src/hooks/useFormService'
@@ -7,14 +7,6 @@ import AvailabilitiesCell from 'src/components/AvailabilitiesCell/Availabilities
 
 import FormPageAnimation from '../FormPageAnimation/FormPageAnimation'
 import FormButtonWrapper from '../FormButtonWrapper/FormButtonWrapper'
-
-export const availabilitySchema = yup.object().shape({
-  _hidden: yup.mixed().required(),
-  // ids temporarily hard coded
-  availability: yup
-    .array(yup.mixed().oneOf(['1', '2', '3', '4', '5']))
-    .required('form:validation.availability'),
-})
 
 /**
  * Collect periods of availability if applicable.

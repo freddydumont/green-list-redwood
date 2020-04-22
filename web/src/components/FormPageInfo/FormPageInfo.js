@@ -1,6 +1,6 @@
-import * as yup from 'yup'
 import { Flex, Divider } from 'theme-ui'
 import { useTranslation } from 'react-i18next'
+import { userSchema } from 'form-validation'
 
 import FormPageLayout from 'src/layouts/FormPageLayout/FormPageLayout'
 import { useFormService } from 'src/hooks/useFormService'
@@ -12,37 +12,6 @@ import {
 } from 'src/components/FormComponents/FormComponents'
 import FormPageAnimation from 'src/components/FormPageAnimation/FormPageAnimation'
 import featureToggles from 'src/featureToggles'
-
-export const userSchema = yup.object().shape({
-  _hidden: yup.mixed().required(),
-  firstName: yup.string().required('form:validation.firstname'),
-  lastName: yup.string().required('form:validation.lastname'),
-  email: yup
-    .string()
-    .email('form:validation.email.valid')
-    .required('form:validation.email.required'),
-  dateOfBirth: yup
-    .date()
-    .typeError('form:validation.dateofbirth.valid')
-    .required('form:validation.dateofbirth.required'),
-  gender: yup
-    .mixed()
-    .oneOf(['MALE', 'FEMALE'], 'form:validation.gender')
-    .required('form:validation.gender'),
-  lang: yup
-    .mixed()
-    .oneOf(['FR', 'EN'], 'form:validation.lang')
-    .required('form:validation.lang'),
-  location: yup.string().required('form:validation.location'),
-  phone: yup.string().required('form:validation.phone'),
-  contactPreference: yup
-    .array(
-      yup
-        .mixed()
-        .oneOf(['EMAIL', 'PHONE', 'TEXT'], 'form:validation.contactPreference')
-    )
-    .required('form:validation.contactPreference'),
-})
 
 /** Collect identification and contact information */
 const FormPageInfo = () => {

@@ -26,8 +26,7 @@
     "redwood-nprogress": "^1.0.1",
     "tailwindcss": "^1.2.0",
     "theme-ui": "^0.3.1",
-    "xstate": "^4.8.0",
-    "yup": "^0.28.3"
+    "xstate": "^4.8.0"
   },
   "devDependencies": {
     "babel-plugin-i18next-extract": "^0.7.2"
