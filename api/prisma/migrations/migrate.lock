@@ -3,6 +3,4 @@
 # Prisma Migrate lockfile v1
 # Read more about conflict resolution here: TODO
 
-20200415110824-initial-beta-2
-20200421172756-split-user-profile
-20200421173208-add-roles
+20200425095541-initial
