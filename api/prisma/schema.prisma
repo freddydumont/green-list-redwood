@@ -64,7 +64,7 @@ model Availability {
 model Language {
   id       Int       @default(autoincrement()) @id
   name     String    @unique
-  profiles Profile[] @relation(references: [id])
+  profiles Profile[]
 }
 
 enum Gender {
