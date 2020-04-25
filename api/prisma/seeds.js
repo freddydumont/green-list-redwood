@@ -20,8 +20,6 @@ const availabilities = [
   'remote',
 ]
 
-const languages = ['fr', 'en']
-
 const skills = {
   // kitchen are questions, let's just call them q1...q8, and the translation
   // file will handle the displayed name
@@ -65,33 +63,6 @@ async function seedAvailabillities() {
   }
 
   log.end('Availabilities')
-}
-
-async function seedLanguages() {
-  log.start('Languages')
-  for (let name of languages) {
-    const data = await db.language.findOne({
-      where: {
-        name,
-      },
-    })
-
-    if (data) {
-      log.found('Language', name, data)
-      count.found++
-    } else {
-      const created = await db.language.create({
-        data: {
-          name,
-        },
-      })
-
-      log.created('Language', name, created)
-      count.created++
-    }
-  }
-
-  log.end('Languages')
 }
 
 /** Seed skill domains. Skills will be connected when we create them */
@@ -164,7 +135,6 @@ async function main() {
   // existence of a record before trying to create it).
 
   await seedAvailabillities()
-  await seedLanguages()
   await seedSkillDomains()
   await seedSkills()
   log.count(count)

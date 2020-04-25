@@ -17,6 +17,7 @@ model User {
   firstName String
   lastName  String
   email     String   @unique
+  role      Role     @default(USER)
   profile   Profile?
 }
 
@@ -26,8 +27,7 @@ model Profile {
   userId                      Int
   dateOfBirth                 DateTime
   gender                      Gender
-  lang                        Language       @relation(fields: [langId], references: [id])
-  langId                      Int            @map("lang")
+  lang                        Language
   location                    String
   phone                       String?
   contactPreference           ContactBy
@@ -60,10 +60,9 @@ model Availability {
   profiles Profile[] @relation(references: [id])
 }
 
-model Language {
-  id       Int       @default(autoincrement()) @id
-  name     String    @unique
-  profiles Profile[] @relation(references: [id])
+enum Language {
+  FR
+  EN
 }
 
 enum Gender {
@@ -75,4 +74,9 @@ enum ContactBy {
   email
   phone
   text
+}
+
+enum Role {
+  USER
+  ADMIN
 }
